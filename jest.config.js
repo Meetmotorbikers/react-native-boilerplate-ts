@@ -3,7 +3,7 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
-const { defaults: tsjPreset } = require("ts-jest/presets");
+const { defaults: tsjPreset } = require('ts-jest/presets');
 
 module.exports = {
   ...tsjPreset,
@@ -18,7 +18,7 @@ module.exports = {
   // browser: false,
 
   // The directory where Jest should store its cached dependency information
-  cacheDirectory: ".jest/cache",
+  cacheDirectory: '.jest/cache',
 
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
@@ -27,15 +27,18 @@ module.exports = {
   // collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: null,
+  collectCoverageFrom: [
+    '**/*.{ts,tsx}',
+    '!**/node_modules/**',
+  ],
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    "/node_modules/"
+  ],
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -65,9 +68,9 @@ module.exports = {
 
   // A set of global variables that need to be available in all test environments
   globals: {
-    "ts-jest": {
-      babelConfig: true
-    }
+    'ts-jest': {
+      babelConfig: true,
+    },
   },
 
   // An array of directory names to be searched recursively up from the requiring module's location
@@ -87,7 +90,7 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {},
-  modulePaths: ["<rootDir>"],
+  modulePaths: ['<rootDir>'],
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -99,7 +102,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: "react-native",
+  preset: 'react-native',
 
   // Run tests from one or more projects
   // projects: null,
@@ -149,10 +152,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
-  // ],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
@@ -177,8 +177,8 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   transform: {
     ...tsjPreset.transform,
-    "\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
-  }
+    '\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
