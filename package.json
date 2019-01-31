@@ -17,17 +17,12 @@
     "@types/react-native": "^0.57.33",
     "@types/react-test-renderer": "^16.0.3",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "24.0.0",
-    "jest": "24.0.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
     "metro-react-native-babel-preset": "0.51.1",
     "react-native-typescript-transformer": "^1.2.11",
     "react-test-renderer": "16.6.3",
+    "ts-jest": "^23.10.5",
     "typescript": "^3.2.4"
-  },
-  "jest": {
-    "preset": "react-native",
-    "modulePaths": [
-      "<rootDir>"
-    ]
   }
 }
