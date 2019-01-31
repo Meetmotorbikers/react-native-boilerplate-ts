@@ -1,10 +1,11 @@
-import "react-native";
-import React from "react";
-import App from "src/App";
+import * as React from 'react';
+import 'react-native';
+import App from 'src/App';
 
 // Note: test renderer must be required after react-native.
-import renderer from "react-test-renderer";
+// tslint:disable-next-line: import-name
+import renderer from 'react-test-renderer';
 
-it("renders correctly", () => {
+it('renders correctly', () => {
   renderer.create(<App />);
 });

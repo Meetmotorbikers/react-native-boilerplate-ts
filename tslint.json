@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-airbnb",
+    "tslint-immutable/all",
+    "tslint-clean-code",
+    "tslint-sonarts",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "prettier": true,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false,
+    "member-access": [true, "no-public"],
+    "object-literal-sort-keys": false,
+    "jsx-no-lambda": false,
+    "interface-name": false,
+    "no-this": false,
+    "no-class": false
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-clean-code/dist/src",
+    "node_modules/tslint-sonarts/lib/rules",
+    "tslint-plugin-prettier"
+  ]
+}
