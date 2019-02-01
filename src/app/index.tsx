@@ -8,13 +8,13 @@ const instructions = Platform.select({
   Cmd+D or shake for dev menu`,
 });
 
-interface Props {}
-
-export default class App extends React.Component<Props> {
+export default class App extends React.Component<{}> {
   render(): React.ReactNode {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.welcome} testID={'headingWelcome'}>
+          Welcome to React Native!
+        </Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>

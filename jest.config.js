@@ -28,7 +28,9 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
-    '**/*.{ts,tsx}',
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.story.tsx',
+    '!src/**/*.d.ts',
     '!**/node_modules/**',
   ],
 
@@ -79,18 +81,19 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "json",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "node"
-  // ],
+  moduleFileExtensions: [
+    "js",
+    "json",
+    "jsx",
+    "ts",
+    "tsx",
+    "node"
+  ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  moduleNameMapper: {},
-  modulePaths: ['<rootDir>'],
+  // moduleNameMapper: {},
+
+  modulePaths: ['<rootDir>'], //allow absolute imports eg import Button from 'src/comps/Button'
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -152,7 +155,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)','**/?(*.)+(spec|test).[tj]s?(x)'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
@@ -196,4 +199,8 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+
+  // Load setup-tests.js before test execution
+  // setupFiles: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/tools/jest/setup-tests.js'],
 };

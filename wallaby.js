@@ -1,18 +1,20 @@
 module.exports = function(wallaby) {
   return {
     files: [
+      'package.json',
+      'tsconfig.json',
+      'jest.config.js',
       'src/**/*.ts?(x)',
       'src/**/*.js?(x)',
       'src/**/*.json',
       '!src/**/*.test.ts?(x)',
       '!src/**/*.spec.ts?(x)',
-      'tools/**/*.js',
-      'package.json',
-      'tsconfig.json',
-      'jest.config.js',
     ],
 
-    tests: ['test/**/*.spec.ts?(x)', 'src/**/*.test.ts?(x)'],
+    tests: [
+      'src/**/*.spec.ts?(x)',
+      'src/**/*.test.ts?(x)',
+    ],
 
     env: {
       type: 'node',
