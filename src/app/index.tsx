@@ -1,5 +1,14 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
+// tslint:disable-next-line: import-name
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const instructions = Platform.select({
   android: `Double tap R on your keyboard to reload,
@@ -17,6 +26,9 @@ export default class App extends React.Component<{}> {
         </Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <TouchableOpacity>
+          <Icon size={30} name="ios-checkmark-circle" color="green" />
+        </TouchableOpacity>
       </View>
     );
   }
