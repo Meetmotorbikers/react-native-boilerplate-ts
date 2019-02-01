@@ -1,6 +1,6 @@
 // tslint:disable no-expression-statement import-name
 
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 
 import App from 'src/app';
@@ -17,6 +17,16 @@ describe('App', () => {
         .text();
 
       expect(text).toEqual(WELCOME_TO_REACT_NATIVE);
+    });
+  });
+
+  describe('#Button', () => {
+    it('should render a touchable icon', () => {
+      const app = shallow(<App />);
+      const icon = app
+        .findWhere(node => node.prop('testID') === 'testButton')
+        .first();
+      expect(icon).toExist();
     });
   });
 });
