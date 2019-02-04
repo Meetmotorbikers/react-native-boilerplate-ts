@@ -31,7 +31,6 @@ const reducer: Reducer<DuckState, DuckActions> = (
   action
 ) => {
   switch (action.type) {
-
     case getType(duckActions.quack): {
       return { ...state, quacking: true };
     }
