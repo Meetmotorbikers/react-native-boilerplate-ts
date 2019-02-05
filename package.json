@@ -6,11 +6,13 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
     "test": "jest",
-    "lint": "tslint --project tsconfig.json --config tslint.json"
+    "lint": "tslint --project tsconfig.json --config tslint.json",
+    "xcode": "open ios/react_native_boilerplate_ts.xcodeproj"
   },
   "dependencies": {
     "cuid": "^2.1.4",
     "ramda": "^0.26.1",
+    "ramda-adjunct": "^2.14.0",
     "react": "16.6.3",
     "react-native": "0.58.3",
     "react-native-navigation": "^2.8.0",

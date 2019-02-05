@@ -1,6 +1,7 @@
-// tslint:disable: import-name no-commented-code
+// tslint:disable: import-name no-commented-code typedef
+import * as RA from 'ramda-adjunct';
 import { applyMiddleware, createStore } from 'redux';
-import logger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 // import { createEpicMiddleware } from 'redux-observable';
@@ -17,7 +18,12 @@ import { composeEnhancers } from './utils';
 function configureStore(initialState?: object) {
   // configure middlewares
 
-  const middlewares: ReadonlyArray<any> = [thunk, logger /*epicMiddleware*/];
+  const middlewares: ReadonlyArray<any> = RA.compact([
+    thunk.withExtraArgument({}),
+    __DEV__ ? createLogger() : null,
+    /*epicMiddleware*/
+  ]);
+
   // compose enhancers
   const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 

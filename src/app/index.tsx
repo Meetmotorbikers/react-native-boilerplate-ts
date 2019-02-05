@@ -26,7 +26,7 @@ export default class App extends React.Component<{}> {
         </Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <TouchableOpacity testID={'testButton'} >
+        <TouchableOpacity testID={'testButton'}>
           <Icon size={30} name="ios-checkmark-circle" color="green" />
         </TouchableOpacity>
       </View>
