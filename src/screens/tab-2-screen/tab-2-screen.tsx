@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { Navigation } from 'react-native-navigation';
 
-import { pushTutorialScreen } from '@@navigation/index';
+// import { pushTutorialScreen } from '@@navigation/index';
 
 const styles = StyleSheet.create({
   flex: {
@@ -27,7 +27,7 @@ class Tab2Screen extends React.PureComponent<Props> {
   navigationButtonPressed({ buttonId }: { readonly buttonId: string }): void {
     switch (buttonId) {
       case 'nav_logout_btn': {
-        pushTutorialScreen();
+        // pushTutorialScreen();
         break;
       }
       case 'nav_user_btn': {

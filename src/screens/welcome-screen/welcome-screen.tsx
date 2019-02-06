@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react';
 import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
@@ -7,7 +5,7 @@ import { Navigation } from 'react-native-navigation';
 
 import { LOGIN_SCREEN } from '@@navigation/index';
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
   flex: {
     flex: 1,
     alignItems: 'center',
@@ -33,28 +31,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
   },
-});
+} );
 
 class WelcomeScreen extends React.PureComponent<{
   readonly componentId: string;
 }> {
-  readonly handleGetStartAction = (screenType: string): void => {
+  readonly handleGetStartAction = ( screenType: string ): void => {
     // tslint:disable-next-line: no-expression-statement
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: LOGIN_SCREEN,
-        passProps: {
-          screenType,
-        },
-        options: {
-          topBar: {
-            title: {
-              text: 'LOGIN',
-            },
-          },
-        },
-      },
-    });
+    console.log( 'WelcomeScreen -> handleGetStartAction: ', screenType );
+
+    // tslint:disable-next-line: no-expression-statement
+    // Navigation.push( this.props.componentId, {
+    //   component: {
+    //     name: LOGIN_SCREEN,
+    //     passProps: {
+    //       screenType,
+    //     },
+    //     options: {
+    //       topBar: {
+    //         title: {
+    //           text: 'LOGIN',
+    //         },
+    //       },
+    //     },
+    //   },
+    // } );
   };
 
   render(): JSX.Element {
@@ -62,20 +63,18 @@ class WelcomeScreen extends React.PureComponent<{
       <View style={styles.flex}>
         <Image
           style={styles.logo}
-          source={require('src/img/images/logo.png')}
+          source={require( 'src/img/images/logo.png' )}
         />
         <Text style={styles.logoTitle}>{'Welcome to RNN v2 Starter Kit!'}</Text>
+
         <Button
-          onPress={() => this.handleGetStartAction('Single')}
+          color="red"
+          onPress={() => this.handleGetStartAction( 'Single' )}
           title={'Start Single Screen App'}
-          // buttonStyle={styles.button}
-          // titleStyle={styles.buttonTitle}
         />
         <Button
-          onPress={() => this.handleGetStartAction('Tab')}
+          onPress={() => this.handleGetStartAction( 'Tab' )}
           title={'Start Tab Based App'}
-          // buttonStyle={styles.button}
-          // titleStyle={styles.buttonTitle}
         />
       </View>
     );

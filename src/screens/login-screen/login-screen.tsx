@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 
-import { pushSingleScreenApp, pushTabBasedApp } from '@@navigation/index';
+// import { pushSingleScreenApp, pushTabBasedApp } from '@@navigation/index';
 
 const styles = StyleSheet.create({
   flex: {
@@ -21,9 +21,9 @@ interface Props {
 class LoginScreen extends React.PureComponent<Props> {
   readonly loginWithFacebook = () => {
     // tslint:disable-next-line: no-expression-statement
-    this.props.screenType === 'Single'
-      ? pushSingleScreenApp()
-      : pushTabBasedApp();
+    // this.props.screenType === 'Single'
+    //   ? pushSingleScreenApp()
+    //   : pushTabBasedApp();
   };
 
   render(): JSX.Element {

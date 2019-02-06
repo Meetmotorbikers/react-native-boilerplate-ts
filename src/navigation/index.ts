@@ -1,6 +1,7 @@
 export * from './screens';
 export {
-  pushTutorialScreen,
-  pushSingleScreenApp,
-  pushTabBasedApp,
+  // pushTutorialScreen,
+  // pushSingleScreenApp,
+  // pushTabBasedApp,
+  pushAuthScreen
 } from './navigation';
