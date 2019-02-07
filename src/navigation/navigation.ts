@@ -12,7 +12,7 @@ import {
 import registerScreens from './register-screens';
 
 // Register all screens on launch
-// registerScreens();
+registerScreens();
 
 // start the app on auth screen:
 export function pushAuthScreen(): void {

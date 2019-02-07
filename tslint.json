@@ -15,12 +15,15 @@
     "prettier": true,
     "no-submodule-imports": false,
     "no-implicit-dependencies": false,
-    "member-access": [true, "no-public"],
+    "member-access": [
+      true,
+      "no-public"
+    ],
     "object-literal-sort-keys": false,
     "jsx-no-lambda": false,
     "interface-name": false,
     "no-this": false,
-    "no-class": false
+    "no-class": false,
   },
   "rulesDirectory": [
     "node_modules/tslint-clean-code/dist/src",
