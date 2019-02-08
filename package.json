@@ -7,6 +7,7 @@
     "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
     "test": "jest",
     "lint": "tslint --project tsconfig.json --config tslint.json",
+    "lint:css": "stylelint './src/**/*.tsx'",
     "xcode": "open ios/react_native_boilerplate_ts.xcodeproj"
   },
   "dependencies": {
@@ -20,6 +21,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^4.1.3",
     "typesafe-actions": "^3.0.0",
     "utility-types": "^3.4.1"
   },
@@ -36,8 +38,10 @@
     "@types/react-redux": "^7.0.1",
     "@types/react-test-renderer": "^16.8.0",
     "@types/redux-logger": "^3.0.6",
+    "@types/styled-components": "^4.1.8",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "babel-plugin-styled-components": "^1.10.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "jest": "^24.1.0",
@@ -48,6 +52,9 @@
     "react-native-typescript-transformer": "^1.2.11",
     "react-native-vector-icons": "^6.2.0",
     "react-test-renderer": "16.6.3",
+    "stylelint": "^9.10.1",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
     "ts-jest": "^23.10.5",
     "tslib": "^1.9.3",
     "tslint": "^5.12.1",
