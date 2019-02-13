@@ -1,4 +1,3 @@
-// tslint:disable: no-commented-code
 export { default as AuthScreen } from './auth-screen/auth-screen'
 export { default as WelcomeScreen } from './welcome-screen/welcome-screen';
 export { default as LoginScreen } from './login-screen/login-screen';

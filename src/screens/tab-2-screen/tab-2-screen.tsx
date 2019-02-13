@@ -1,18 +1,22 @@
-// tslint:disable: no-expression-statement
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
 import { Navigation } from 'react-native-navigation';
+import styled from 'styled-components/native';
 
-// import { pushTutorialScreen } from '@@navigation/index';
+import { pushTutorialScreen } from '@@navigation/index';
 
-const styles = StyleSheet.create({
-  flex: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+const Wrapper = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Copy = styled.Text`
+  font-size: 18;
+  font-weight: bold;
+  color: paleturquoise;
+`;
+
 
 interface Props {
   readonly data: {};
@@ -27,7 +31,7 @@ class Tab2Screen extends React.PureComponent<Props> {
   navigationButtonPressed({ buttonId }: { readonly buttonId: string }): void {
     switch (buttonId) {
       case 'nav_logout_btn': {
-        // pushTutorialScreen();
+        pushTutorialScreen();
         break;
       }
       case 'nav_user_btn': {
@@ -40,11 +44,11 @@ class Tab2Screen extends React.PureComponent<Props> {
 
   render(): JSX.Element {
     return (
-      <View style={styles.flex}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+      <Wrapper>
+        <Copy>
           Play top buttons!
-        </Text>
-      </View>
+        </Copy>
+      </Wrapper>
     );
   }
 }
