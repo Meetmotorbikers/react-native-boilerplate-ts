@@ -8,6 +8,8 @@ import { action } from '@storybook/addon-actions';
 import Button from '../../components/button';
 import CenterView from '../../components/center-view';
 import Welcome from '../../components/welcome';
+import LottieLoader from "../../components/lottie-loader";
+import LottieAnimatedExample from "../../components/lottie-animated-example";
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome />);
 
@@ -22,4 +24,12 @@ storiesOf('Button', module)
     <Button onPress={action('clicked-emoji')}>
       <Text>😀 😎 👍 💯</Text>
     </Button>
+  ));
+
+storiesOf('Lottie', module)
+  .add('example', () => (
+    <LottieLoader />
+  ))
+  .add('example Picker', () => (
+    <LottieAnimatedExample />
   ));
