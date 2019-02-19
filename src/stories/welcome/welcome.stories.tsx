@@ -11,7 +11,7 @@ import {
   LottieLoader,
   ReactNativeLocalizeExample,
   Welcome,
-} from 'src/components/index';
+} from '@@components/index';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome />);
 

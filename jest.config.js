@@ -82,7 +82,19 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '^@@assets/(.*)$': '<rootDir>/src/assets/$1',
+    '^@@config/(.*)$': '<rootDir>/src/config/$1',
+    '^@@utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@@locale/(.*)$': '<rootDir>/src/locale/$1',
+    '^@@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@@screens/(.*)$': '<rootDir>/src/screens/$1',
+    '^@@stories/(.*)$': '<rootDir>/src/stories/$1',
+    '^@@navigation/(.*)$': '<rootDir>/src/navigation/$1',
+    '^@@redux/(.*)$': '<rootDir>/src/redux/$1',
+    '^@@ducks/(.*)$': '<rootDir>/src/ducks/$1',
+    '^@@styles/(.*)$': '<rootDir>/src/styles/$1',
+  },
 
   modulePaths: ['<rootDir>'], //allow absolute imports eg import Button from 'src/comps/Button'
 

@@ -14,7 +14,7 @@ import {
 
 import StorybookUIRoot from '../../tools/storybook';
 
-import Provider from 'src/redux/provider';
+import Provider from '@@redux/provider';
 
 import {
   // AUTH_SCREEN,

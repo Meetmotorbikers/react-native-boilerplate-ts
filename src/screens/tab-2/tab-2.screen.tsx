@@ -1,18 +1,15 @@
 import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
-// tslint:disable-next-line:import-name
 import styled from 'styled-components/native';
 
 import { pushTutorialScreen } from '@@navigation/index';
 
-// tslint:disable-next-line:variable-name
 const Wrapper = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
 `;
 
-// tslint:disable-next-line:variable-name
 const Copy = styled.Text`
   font-size: 18;
   font-weight: bold;

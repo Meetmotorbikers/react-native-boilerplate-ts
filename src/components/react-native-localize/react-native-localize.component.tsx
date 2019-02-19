@@ -1,7 +1,7 @@
+import { setI18nConfig } from '@@locale/language.utils';
 import i18n from 'i18n-js';
 import * as React from 'react';
 import * as RNLocalize from 'react-native-localize';
-import { setI18nConfig } from '../../locale/language.utils';
 
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 

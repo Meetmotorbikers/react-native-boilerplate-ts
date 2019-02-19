@@ -1,7 +1,7 @@
+import i18n from '@@locale/index';
 import * as React from 'react';
 import { Platform } from 'react-native';
 import styled from 'styled-components/native';
-import i18n from '../../locale';
 
 const instructions = Platform.select({
   android: i18n.t('platform.android'),

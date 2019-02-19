@@ -20,7 +20,7 @@ export default class LottieLoader extends React.Component {
           <StyledAnimation
             ref={this.animation}
             loop={true}
-            source={require('../../assets/animations/793-cycle-animation.json')}
+            source={require('@@assets/animations/793-cycle-animation.json')}
           />
         </View>
       </Container>

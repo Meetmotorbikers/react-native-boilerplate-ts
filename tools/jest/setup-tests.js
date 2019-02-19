@@ -20,8 +20,11 @@ function copyProps(src, target) {
   });
 }
 
+// @ts-ignore
 global.window = window;
+// @ts-ignore
 global.document = window.document;
+// @ts-ignore
 global.navigator = {
   userAgent: 'node.js',
 };

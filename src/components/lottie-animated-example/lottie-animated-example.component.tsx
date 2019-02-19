@@ -17,10 +17,10 @@ import LottieExamplePicker, {
 
 const AnimatedSlider = Animated.createAnimatedComponent(Slider);
 
-const playIcon = require('../../assets/images/play.png');
-const pauseIcon = require('../../assets/images/pause.png');
-const loopIcon = require('../../assets/images/loop.png');
-const inverseIcon = require('../../assets/images/inverse.png');
+const playIcon = require('@@assets/images/play.png');
+const pauseIcon = require('@@assets/images/pause.png');
+const loopIcon = require('@@assets/images/loop.png');
+const inverseIcon = require('@@assets/images/inverse.png');
 
 const makeExample = (
   name: string,
@@ -32,36 +32,34 @@ const makeExample = (
 
 const EXAMPLES: ReadonlyArray<Example> = [
   makeExample('Hamburger Arrow', () =>
-    require('../../assets/animations/HamburgerArrow.json')
+    require('@@assets/animations/HamburgerArrow.json')
   ),
   makeExample(
     'Hamburger Arrow (200 px)',
-    () => require('../../assets/animations/HamburgerArrow.json'),
+    () => require('@@assets/animations/HamburgerArrow.json'),
     200
   ),
   makeExample('Line Animation', () =>
-    require('../../assets/animations/LineAnimation.json')
+    require('@@assets/animations/LineAnimation.json')
   ),
   makeExample('Lottie Logo 1', () =>
-    require('../../assets/animations/LottieLogo1.json')
+    require('@@assets/animations/LottieLogo1.json')
   ),
   makeExample('Lottie Logo 2', () =>
-    require('../../assets/animations/LottieLogo2.json')
+    require('@@assets/animations/LottieLogo2.json')
   ),
   makeExample('Lottie Walkthrough', () =>
-    require('../../assets/animations/LottieWalkthrough.json')
+    require('@@assets/animations/LottieWalkthrough.json')
   ),
-  makeExample('Pin Jump', () =>
-    require('../../assets/animations/PinJump.json')
-  ),
+  makeExample('Pin Jump', () => require('@@assets/animations/PinJump.json')),
   makeExample('Twitter Heart', () =>
-    require('../../assets/animations/TwitterHeart.json')
+    require('@@assets/animations/TwitterHeart.json')
   ),
   makeExample('Watermelon', () =>
-    require('../../assets/animations/Watermelon.json')
+    require('@@assets/animations/Watermelon.json')
   ),
   makeExample('Motion Corpse', () =>
-    require('../../assets/animations/MotionCorpse-Jrcanest.json')
+    require('@@assets/animations/MotionCorpse-Jrcanest.json')
   ),
 ];
 
