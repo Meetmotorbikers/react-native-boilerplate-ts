@@ -1,18 +1,17 @@
-// tslint:disable: no-expression-statement typedef no-duplicate-string
 import { Navigation } from 'react-native-navigation';
 
 import {
   SINGLE_APP_SCREEN,
+  STORYBOOK_UI,
   TAB1_SCREEN,
   TAB2_SCREEN,
   WELCOME_SCREEN,
-  STORYBOOK_UI,
   // AUTH_SCREEN,
-} from './screens';
+} from './screens.navigation';
 
-import registerScreens from './register-screens';
+import registerScreens from './register-screens.navigation';
 
-// Register all screens on launch
+/** Register all screens on launch */
 registerScreens();
 
 // start the app on auth screen:
@@ -43,18 +42,17 @@ registerScreens();
 //   });
 // }
 
-
-export function pushStorybookScreen() {
+export function pushStorybookScreen(): void {
   Navigation.setRoot({
     root: {
       component: {
         name: STORYBOOK_UI,
       },
     },
-  })
+  });
 }
 
-export function pushTutorialScreen() {
+export function pushTutorialScreen(): void {
   Navigation.setDefaultOptions({
     topBar: {
       background: {
@@ -109,7 +107,7 @@ export function pushTutorialScreen() {
   });
 }
 
-export function pushSingleScreenApp() {
+export function pushSingleScreenApp(): void {
   Navigation.setRoot({
     root: {
       stack: {
@@ -125,6 +123,7 @@ export function pushSingleScreenApp() {
                   leftButtons: [
                     {
                       id: 'nav_user_btn',
+                      // tslint:disable-next-line:no-duplicate-string
                       icon: require('src/assets/icons/ic_nav_user.png'),
                       color: 'white',
                     },
@@ -132,6 +131,7 @@ export function pushSingleScreenApp() {
                   rightButtons: [
                     {
                       id: 'nav_logout_btn',
+                      // tslint:disable-next-line:no-duplicate-string
                       icon: require('src/assets/icons/ic_nav_logout.png'),
                       color: 'white',
                     },
@@ -146,7 +146,7 @@ export function pushSingleScreenApp() {
   });
 }
 
-export function pushTabBasedApp() {
+export function pushTabBasedApp(): void {
   Navigation.setRoot({
     root: {
       bottomTabs: {

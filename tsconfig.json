@@ -11,7 +11,7 @@
     "jsx": "react-native" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
     // "declaration": true, /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true, /* Generates a sourcemap for each corresponding '.d.ts' file. */
-    "sourceMap": true, /* Generates corresponding '.map' file. */
+    "sourceMap": true /* Generates corresponding '.map' file. */,
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
     // "outDir": "./",                        /* Redirect output structure to the directory. */
     // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
@@ -40,28 +40,14 @@
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "." /* Base directory to resolve non-absolute module names. */,
     "paths": {
-      "@@assets/*": [
-        "src/assets/*"
-      ],
-      "@@config/*": [
-        "src/config/*"
-      ],
-      "@@components/*": [
-        "src/components/*"
-      ],
-      "@@screens/*": [
-        "src/screens/*"
-      ],
-      "@@navigation/*": [
-        "src/navigation/*"
-      ],
-      "@@redux/*": [
-        "src/redux/*"
-      ],
-      "@@ducks/*": [
-        "src/ducks"
-      ]
-    }, /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      "@@assets/*": ["src/assets/*"],
+      "@@config/*": ["src/config/*"],
+      "@@components/*": ["src/components/*"],
+      "@@screens/*": ["src/screens/*"],
+      "@@navigation/*": ["src/navigation/*"],
+      "@@redux/*": ["src/redux/*"],
+      "@@ducks/*": ["src/ducks"]
+    } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     // "types": [],                           /* Type declaration files to be included in compilation. */
@@ -80,15 +66,32 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     "plugins": [
       {
-        "name": "typescript-tslint-plugin"
+        "name": "typescript-tslint-plugin",
+        /**
+         * The configuration file that tslint should use instead of the default tslint.json.
+         * A relative file path is resolved relative to the project root.
+         */
+        "configFile": "./tslint.json",
+        /**
+         * Enable/disable tslint for .js files, default is false
+         */
+        "jsEnable": false,
+        /**
+         * Control if TypeScript definition files should be ignored. Default is true
+         */
+        "ignoreDefinitionFiles": true,
+        /**
+         * Always show rule failures as warnings, ignoring the severity configuration in the
+         * tslint.json configuration. Default is true.
+         */
+        "alwaysShowRuleFailuresAsWarnings": false,
+        /**
+         * Suppress tslint errors from being reported while other errors are present.
+         */
+        "suppressWhileTypeErrorsPresent": false
       }
     ]
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "src/**/*",
-    "types/*"
-  ],
+  "exclude": ["node_modules"],
+  "include": ["src/**/*", "types/*"]
 }

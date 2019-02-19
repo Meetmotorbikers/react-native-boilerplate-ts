@@ -16,7 +16,6 @@ declare var System: System;
 
 declare const process: any;
 
-
 interface AnimationObject {
   v: string;
   fr: number;

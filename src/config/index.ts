@@ -1,5 +1,5 @@
 const config = {
-  shouldDisplayStorybook: true
-}
+  shouldDisplayStorybook: true,
+};
 
 export default config;

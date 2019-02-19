@@ -1,15 +1,17 @@
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Text } from 'react-native';
 
-import { storiesOf } from '@storybook/react-native';
-import { action } from '@storybook/addon-actions';
-// import { linkTo } from '@storybook/addon-links';
-
-import Button from '../../components/button';
-import CenterView from '../../components/center-view';
-import Welcome from '../../components/welcome';
-import LottieLoader from "../../components/lottie-loader";
-import LottieAnimatedExample from "../../components/lottie-animated-example";
+import {
+  App,
+  Button,
+  CenterView,
+  LottieAnimatedExample,
+  LottieLoader,
+  ReactNativeLocalizeExample,
+  Welcome,
+} from 'src/components/index';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome />);
 
@@ -27,9 +29,11 @@ storiesOf('Button', module)
   ));
 
 storiesOf('Lottie', module)
-  .add('example', () => (
-    <LottieLoader />
-  ))
-  .add('example Picker', () => (
-    <LottieAnimatedExample />
-  ));
+  .add('example', () => <LottieLoader />)
+  .add('example Picker', () => <LottieAnimatedExample />);
+
+storiesOf('Localization', module).add('example', () => (
+  <ReactNativeLocalizeExample />
+));
+
+storiesOf('App', module).add('i18n', () => <App />);

@@ -1,3 +1,4 @@
+// tslint:disable: readonly-keyword no-any
 import { Dispatch, Middleware } from 'redux';
 import Types from 'Types';
 import { PayloadMetaAction } from 'typesafe-actions/dist/types';
@@ -6,11 +7,9 @@ import { fetch } from '../utils';
 
 interface Error {
   status: number;
-  // tslint:disable-next-line:no-any
   response: any;
 }
 
-// tslint:disable-next-line:no-any
 type FetchAction = PayloadMetaAction<string, any, any>;
 
 // TODO: use env variables to set the default path
@@ -42,7 +41,11 @@ const apiService: Middleware<
   );
 };
 
-function handleErrors(err: Error, action: FetchAction, next: Dispatch) {
+function handleErrors(
+  err: Error,
+  action: FetchAction,
+  next: Dispatch
+): Promise<never> {
   next({
     type: `${action.type}_FAILED`,
     payload: err,
@@ -52,7 +55,7 @@ function handleErrors(err: Error, action: FetchAction, next: Dispatch) {
   return Promise.reject(err);
 }
 
-function handleResponse(res: {}, action: FetchAction, next: Dispatch) {
+function handleResponse(res: {}, action: FetchAction, next: Dispatch): {} {
   next({
     type: `${action.type}_COMPLETED`,
     payload: res,

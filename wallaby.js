@@ -11,10 +11,7 @@ module.exports = function(wallaby) {
       '!src/**/*.spec.ts?(x)',
     ],
 
-    tests: [
-      'src/**/*.spec.ts?(x)',
-      'src/**/*.test.ts?(x)',
-    ],
+    tests: ['src/**/*.spec.ts?(x)', 'src/**/*.test.ts?(x)'],
 
     env: {
       type: 'node',

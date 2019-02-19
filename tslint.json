@@ -1,7 +1,7 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint:latest",
+    "tslint:recommended",
     "tslint-react",
     "tslint-config-airbnb",
     "tslint-immutable/all",
@@ -15,19 +15,44 @@
     "prettier": true,
     "no-submodule-imports": false,
     "no-implicit-dependencies": false,
-    "member-access": [
-      true,
-      "no-public"
-    ],
+    "member-access": [true, "no-public"],
     "object-literal-sort-keys": false,
     "jsx-no-lambda": false,
-    "interface-name": false,
+    "interface-name": [true, "never-prefix"],
+
+    // [tslint-immutable] Recommended built-in rules
+    "no-var-keyword": true,
+    "no-parameter-reassignment": true,
+    "typedef": [true, "call-signature"],
+
+    // Immutability rules
+    "readonly-keyword": [true, "ignore-local", "ignore-class"],
+    "readonly-array": true,
+    "no-let": true,
+    "no-object-mutation": true,
+    "no-delete": true,
+    "no-method-signature": true,
+
+    // Functional style rules
     "no-this": false,
     "no-class": false,
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-clean-code/dist/src",
-    "node_modules/tslint-sonarts/lib/rules",
-    "tslint-plugin-prettier"
-  ]
+    "no-mixed-interface": false,
+    "no-expression-statement": false,
+    "no-if-statement": false,
+
+    // other sound but annoying rules:
+    "import-name": false,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "no-var-requires": false
+  }
+  // "rulesDirectory": [
+  //   "node_modules/tslint-clean-code/dist/src",
+  //   "node_modules/tslint-sonarts/lib/rules",
+  //   "tslint-plugin-prettier"
+  // ]
 }

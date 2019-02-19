@@ -9,25 +9,24 @@ import 'react-native';
  * Set up DOM in node.js environment for Enzyme to mount to
  */
 // const { JSDOM } = require('jsdom');
-import { DOMWindow,JSDOM } from 'jsdom';
+import { DOMWindow, JSDOM } from 'jsdom';
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const { window } = jsdom;
 
-function copyProps(src: DOMWindow,target: NodeJS.Global): void {
-  Object.defineProperties(target,{
+function copyProps(src: DOMWindow, target: NodeJS.Global): void {
+  Object.defineProperties(target, {
     ...Object.getOwnPropertyDescriptors(src),
     ...Object.getOwnPropertyDescriptors(target),
   });
 }
-
 
 global.window = window;
 global.document = window.document;
 global.navigator = {
   userAgent: 'node.js',
 };
-copyProps(window,global);
+copyProps(window, global);
 
 /**
  * Set up Enzyme to mount to DOM, simulate events,
@@ -43,7 +42,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const originalConsoleError = console.error;
 console.error = (message?: any) => {
-  if(message.startsWith('Warning:')) {
+  if (message.startsWith('Warning:')) {
     return;
   }
 

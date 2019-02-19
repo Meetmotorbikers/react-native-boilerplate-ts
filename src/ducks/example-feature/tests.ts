@@ -14,7 +14,6 @@
 import * as actions from './actions';
 import reducer from './reducers';
 
-
 describe('duck reducer', () => {
   describe('quack', () => {
     const quack = actions.quack();

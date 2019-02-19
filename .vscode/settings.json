@@ -3,5 +3,7 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "react-native-storybooks.port": 7007
+  "react-native-storybooks.port": 7007,
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false
 }
