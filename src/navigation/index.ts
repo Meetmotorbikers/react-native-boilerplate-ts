@@ -4,4 +4,5 @@ export {
   pushSingleScreenApp,
   pushTabBasedApp,
   pushStorybookScreen,
+  pushAuthScreen,
 } from './navigation';

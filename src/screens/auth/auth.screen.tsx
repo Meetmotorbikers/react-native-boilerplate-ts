@@ -1,14 +1,9 @@
 import * as React from 'react';
-import { Button, Text } from 'react-native';
-import Config from 'react-native-config';
+import { Button } from 'react-native';
 import styled from 'styled-components/native';
 
 interface Props {
   readonly componentId: string;
-}
-
-interface State {
-  readonly value: number;
 }
 
 const Wrapper = styled.View`
@@ -21,27 +16,15 @@ const Heading = styled.Text`
   color: palevioletred;
 `;
 
-const increment = (prevState: State) => ({ value: prevState.value + 1 });
-
-class AuthScreen extends React.PureComponent<Props, State> {
-  state: State = { value: 0 };
-
+class AuthScreen extends React.PureComponent<Props> {
   render(): JSX.Element {
     return (
       <Wrapper>
         <Heading>Auth Screen</Heading>
-        <Button title="increment" onPress={this.loginHandler} />
-        <Text>{Config.API_URL}</Text>
-        <Text>{this.state.value}</Text>
+        <Button onPress={console.log} title="Login" testID="loginBtn" />
       </Wrapper>
     );
   }
-  private loginHandler = (e: any): void => {
-    // tslint:disable-next-line:no-console
-    console.log(e);
-    // tslint:disable-next-line:no-console
-    this.setState(increment, () => console.log(this.state));
-  };
 }
 
 export default AuthScreen;

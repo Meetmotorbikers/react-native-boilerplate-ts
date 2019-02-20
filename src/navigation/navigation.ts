@@ -1,12 +1,12 @@
 import { Navigation } from 'react-native-navigation';
 
 import {
+  AUTH_SCREEN,
   SINGLE_APP_SCREEN,
   STORYBOOK_UI,
   TAB1_SCREEN,
   TAB2_SCREEN,
   WELCOME_SCREEN,
-  // AUTH_SCREEN,
 } from './screens.navigation';
 
 import registerScreens from './register-screens.navigation';
@@ -15,32 +15,32 @@ import registerScreens from './register-screens.navigation';
 registerScreens();
 
 // start the app on auth screen:
-// export function pushAuthScreen(): void {
-//   Navigation.setRoot({
-//     root: {
-//       stack: {
-//         children: [
-//           {
-//             component: {
-//               name: AUTH_SCREEN,
-//               options: {},
-//               passProps: {
-//                 text: 'stack with one child',
-//               },
-//             },
-//           },
-//         ],
-//         options: {
-//           topBar: {
-//             title: {
-//               text: 'Login',
-//             },
-//           },
-//         },
-//       },
-//     },
-//   });
-// }
+export function pushAuthScreen(): void {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        children: [
+          {
+            component: {
+              name: AUTH_SCREEN,
+              options: {},
+              passProps: {
+                text: 'stack with one child',
+              },
+            },
+          },
+        ],
+        options: {
+          topBar: {
+            title: {
+              text: 'Login',
+            },
+          },
+        },
+      },
+    },
+  });
+}
 
 export function pushStorybookScreen(): void {
   Navigation.setRoot({

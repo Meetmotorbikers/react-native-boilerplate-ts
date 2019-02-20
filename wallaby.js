@@ -1,10 +1,11 @@
 module.exports = function(wallaby) {
   return {
     files: [
+      { pattern: 'tools/jest/setup-tests.js', instrument: false },
       'package.json',
       'tsconfig.json',
       'jest.config.js',
-      'tools/jest/setup-tests.js',
+      // 'tools/jest/setup-tests.js',
       'src/**/*.ts?(x)',
       'src/**/*.js?(x)',
       'src/**/*.json',
@@ -26,7 +27,7 @@ module.exports = function(wallaby) {
     preprocessors: {
       '**/*.js?(x)': file =>
         require('babel-core').transform(file.content, {
-          sourceMaps: true,
+          sourceMap: true,
           filename: file.path,
           compact: false,
           babelrc: true,
