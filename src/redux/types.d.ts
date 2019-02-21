@@ -1,9 +1,12 @@
 import { StateType } from 'typesafe-actions';
 
+import { DuckActions } from '@@ducks/example-feature';
+import { PlacesAction } from '@@ducks/places';
 import rootReducer from './root-reducer';
-import { DuckActions } from '../ducks/example-feature';
 
 declare module 'Types' {
   export type RootState = StateType<typeof rootReducer>;
-  export type RootAction = DuckActions /* | CatActions | DogActions */;
+  export type RootAction =
+    | DuckActions
+    | PlacesAction /* | CatActions | DogActions */;
 }
