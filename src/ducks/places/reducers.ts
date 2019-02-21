@@ -1,5 +1,6 @@
 import cuid from 'cuid';
 import * as R from 'ramda';
+import { Reducer } from 'redux';
 import { ActionType, getType } from 'typesafe-actions';
 
 import * as placesActions from './actions';
@@ -17,7 +18,10 @@ const initialState: PlacesState = {
   selectedPlace: null,
 };
 
-const reducer = (state: PlacesState = initialState, action: PlacesAction) => {
+const reducer: Reducer<PlacesState, PlacesAction> = (
+  state = initialState,
+  action
+) => {
   switch (action.type) {
     // 'ADD_PLACE'
     case getType(placesActions.add): {
@@ -44,23 +48,9 @@ const reducer = (state: PlacesState = initialState, action: PlacesAction) => {
 
       return {
         ...state,
-        places: R.reject(place => place!.id === selectedPlace.id, state.places),
+        places: R.reject(place => place.id === selectedPlace.id, state.places),
         selectedPlace: null,
       };
-    }
-
-    // 'SELECT_PLACE'
-    case getType(placesActions.select): {
-      const { key } = action.payload;
-      return {
-        ...state,
-        selectedPlace: state.places.find(place => place.id === key),
-      };
-    }
-
-    // 'DESELECT_PLACE'
-    case getType(placesActions.deselect): {
-      return { ...state, selectedPlace: null };
     }
 
     default:

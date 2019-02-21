@@ -11,8 +11,8 @@ export type StateProps = PlacesState;
 export interface DispatchProps {
   readonly onAddPlace: (placeName: string) => void;
   readonly onDeletePlace: () => void;
-  readonly onSelectPlace: (key: string) => void;
-  readonly onDeselectPlace: () => void;
+  // readonly onSelectPlace: (key: string) => void;
+  // readonly onDeselectPlace: () => void;
 }
 
 const mapStateToProps = (
@@ -25,8 +25,8 @@ const mapDispatchToProps = (
 ): DispatchProps => ({
   onAddPlace: placeName => dispatch(placesAction.add(placeName)),
   onDeletePlace: () => dispatch(placesAction.remove()),
-  onSelectPlace: key => dispatch(placesAction.select(key)),
-  onDeselectPlace: () => dispatch(placesAction.deselect()),
+  // onSelectPlace: key => dispatch(placesAction.select(key)),
+  // onDeselectPlace: () => dispatch(placesAction.deselect()),
 });
 
 export type Props = StateProps & DispatchProps & OwnProps;

@@ -1,3 +1,4 @@
+import { Dispatch } from 'redux';
 import { StateType } from 'typesafe-actions';
 
 import { DuckActions } from '@@ducks/example-feature';
@@ -9,4 +10,6 @@ declare module 'Types' {
   export type RootAction =
     | DuckActions
     | PlacesAction /* | CatActions | DogActions */;
+
+  export type DispatchTypeSafe = Dispatch<RootAction>;
 }
