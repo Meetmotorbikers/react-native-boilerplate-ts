@@ -5,4 +5,5 @@ export {
   pushTabBasedApp,
   pushStorybookScreen,
   pushAuthScreen,
+  startMainTabs,
 } from './navigation';

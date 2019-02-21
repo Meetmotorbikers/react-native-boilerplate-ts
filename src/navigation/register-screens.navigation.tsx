@@ -14,7 +14,7 @@ import {
 
 import StorybookUIRoot from '../../tools/storybook';
 
-import Provider from '@@redux/provider';
+import { Provider } from '@@redux/index';
 
 import {
   AUTH_SCREEN,
@@ -58,9 +58,13 @@ export default (): void => {
   Navigation.registerComponent(STORYBOOK_UI, () => StorybookUIRoot);
 
   /** CUSTOM APP screens */
-  Navigation.registerComponent(AUTH_SCREEN, () => AuthScreen);
-  Navigation.registerComponent(SHARE_PLACES_SCREEN, () => SharePlaceScreen);
-  Navigation.registerComponent(FIND_PLACES_SCREEN, () => FindPlaceScreen);
+  Navigation.registerComponent(AUTH_SCREEN, () => WrappedComponent(AuthScreen));
+  Navigation.registerComponent(SHARE_PLACES_SCREEN, () =>
+    WrappedComponent(SharePlaceScreen)
+  );
+  Navigation.registerComponent(FIND_PLACES_SCREEN, () =>
+    WrappedComponent(FindPlaceScreen)
+  );
 
   // tslint:disable-next-line:no-console
   console.info('All screens have been registered...');
