@@ -7,6 +7,7 @@ import {
   LoginScreen,
   PlaceDetailScreen,
   SharePlaceScreen,
+  SideDrawerScreen,
   SingleAppScreen,
   Tab1Screen,
   Tab2Screen,
@@ -23,6 +24,7 @@ import {
   FIND_PLACES_SCREEN,
   LOGIN_SCREEN,
   SHARE_PLACES_SCREEN,
+  SIDE_DRAWER_SCREEN,
   SINGLE_APP_SCREEN,
   STORYBOOK_UI,
   TAB1_SCREEN,
@@ -61,6 +63,9 @@ export default (): void => {
 
   /** CUSTOM APP screens */
   Navigation.registerComponent(AUTH_SCREEN, () => WrappedComponent(AuthScreen));
+
+  Navigation.registerComponent(SIDE_DRAWER_SCREEN, () => SideDrawerScreen);
+
   Navigation.registerComponent(SHARE_PLACES_SCREEN, () =>
     WrappedComponent(SharePlaceScreen)
   );

@@ -42,6 +42,7 @@
     "paths": {
       "@@assets/*": ["src/assets/*"],
       "@@config/*": ["src/config/*"],
+      "@@constants/*": ["src/constants/*"],
       "@@utils*": ["src/utils/*"],
       "@@locale/*": ["src/locale/*"],
       "@@components/*": ["src/components/*"],

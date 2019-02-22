@@ -1,7 +1,7 @@
 import { placesAction } from '@@ducks/places';
 import { ImageSourcePropType } from 'react-native';
 import { connect } from 'react-redux';
-import Types from 'Types';
+import Types from 'MyTypes';
 
 import PlaceDetails from './place-detail.screen';
 

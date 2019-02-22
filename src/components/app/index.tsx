@@ -1,6 +1,6 @@
+import MyTypes from 'MyTypes';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import Types from 'Types';
 
 import { placesAction, placesSelectors, PlacesState } from '../../ducks/places';
 
@@ -16,12 +16,12 @@ export interface DispatchProps {
 }
 
 const mapStateToProps = (
-  state: Types.RootState
+  state: MyTypes.RootState
   // ownProps: OwnProps
 ): StateProps => placesSelectors.getPlaces(state);
 
 const mapDispatchToProps = (
-  dispatch: Dispatch<Types.RootAction>
+  dispatch: Dispatch<MyTypes.RootAction>
 ): DispatchProps => ({
   onAddPlace: placeName => dispatch(placesAction.add(placeName)),
   onDeletePlace: () => dispatch(placesAction.remove()),

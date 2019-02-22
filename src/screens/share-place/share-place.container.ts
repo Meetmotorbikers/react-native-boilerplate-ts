@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Types from 'Types';
+import Types from 'MyTypes';
 import SharePlaceScreen from './share-place.screen';
 
 import { placesAction } from '@@ducks/places';

@@ -5,7 +5,7 @@ import { DuckActions } from '@@ducks/example-feature';
 import { PlacesAction } from '@@ducks/places';
 import rootReducer from './root-reducer';
 
-declare module 'Types' {
+declare module 'MyTypes' {
   export type RootState = StateType<typeof rootReducer>;
   export type RootAction =
     | DuckActions

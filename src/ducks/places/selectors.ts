@@ -1,4 +1,4 @@
-import Types from 'Types';
+import Types from 'MyTypes';
 
 import { PlacesState } from './reducers';
 

@@ -1,6 +1,6 @@
 // tslint:disable: readonly-keyword no-any
 import { Dispatch, Middleware } from 'redux';
-import Types from 'Types';
+import Types from 'MyTypes';
 import { PayloadMetaAction } from 'typesafe-actions/dist/types';
 
 import { fetch } from '../utils';

@@ -1,7 +1,7 @@
 import { placesSelectors } from '@@ducks/places';
 import { Places } from '@@ducks/places/models';
 import { connect } from 'react-redux';
-import Types from 'Types';
+import Types from 'MyTypes';
 
 import FindPlaceScreen from './find-place.screen';
 
