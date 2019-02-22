@@ -12,6 +12,8 @@ interface DispatchProps {
   readonly onAddPlace: (placeName: string) => void;
 }
 
+export type Props = OwnProps & DispatchProps;
+
 const mapDispatchToProps = (
   dispatch: Types.DispatchTypeSafe,
   ownProps: OwnProps

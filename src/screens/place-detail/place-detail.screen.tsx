@@ -1,33 +1,20 @@
 import * as React from 'react';
-import {
-  GestureResponderEvent,
-  ImageSourcePropType,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { connect } from 'react-redux';
-import styled from 'styled-components/native';
-import Types from 'Types';
-
+import { GestureResponderEvent, TouchableOpacity, View } from 'react-native';
 import { Navigation } from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
+import styled from 'styled-components/native';
 
-import { placesAction } from '@@ducks/places';
-interface DispatchProps {
-  readonly onItemDeleted: (key: string) => void;
-}
+import { Props } from './place-detail.container';
 
-interface OwnProps {
-  readonly componentId: string;
-  readonly selectedPlace: {
-    readonly image: ImageSourcePropType;
-    readonly name: string;
-    readonly id: string;
-  };
-  readonly onModalClose: () => void;
-}
-
-type Props = OwnProps & DispatchProps;
+const DeleteButton: React.FC<{
+  readonly onPress: (e: GestureResponderEvent) => void;
+}> = ({ onPress }) => (
+  <TouchableOpacity onPress={onPress}>
+    <DeleteButtonIconWrapper>
+      <Icon name="ios-trash" size={30} color="red" />
+    </DeleteButtonIconWrapper>
+  </TouchableOpacity>
+);
 
 class PlaceDetails extends React.PureComponent<Props> {
   render(): JSX.Element {
@@ -70,23 +57,4 @@ const DeleteButtonIconWrapper = styled.View`
   align-items: center;
 `;
 
-const DeleteButton: React.FC<{
-  readonly onPress: (e: GestureResponderEvent) => void;
-}> = ({ onPress }) => (
-  <TouchableOpacity onPress={onPress}>
-    <DeleteButtonIconWrapper>
-      <Icon name="ios-trash" size={30} color="red" />
-    </DeleteButtonIconWrapper>
-  </TouchableOpacity>
-);
-
-const mapDispatchToProps = (
-  dispatch: Types.DispatchTypeSafe
-): DispatchProps => ({
-  onItemDeleted: id => dispatch(placesAction.remove(id)),
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(PlaceDetails);
+export default PlaceDetails;

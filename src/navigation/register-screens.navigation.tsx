@@ -6,7 +6,7 @@ import {
   FindPlaceScreen,
   LoginScreen,
   PlaceDetailScreen,
-  SharePlaceScreenContainer,
+  SharePlaceScreen,
   SingleAppScreen,
   Tab1Screen,
   Tab2Screen,
@@ -62,7 +62,7 @@ export default (): void => {
   /** CUSTOM APP screens */
   Navigation.registerComponent(AUTH_SCREEN, () => WrappedComponent(AuthScreen));
   Navigation.registerComponent(SHARE_PLACES_SCREEN, () =>
-    WrappedComponent(SharePlaceScreenContainer)
+    WrappedComponent(SharePlaceScreen)
   );
   Navigation.registerComponent(FIND_PLACES_SCREEN, () =>
     WrappedComponent(FindPlaceScreen)

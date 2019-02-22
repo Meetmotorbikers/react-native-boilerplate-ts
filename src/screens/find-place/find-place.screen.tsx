@@ -1,32 +1,10 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { connect } from 'react-redux';
-import Types from 'Types';
-
 import { Navigation } from 'react-native-navigation';
 
 import { PlaceList } from '@@components/index';
-import { placesSelectors } from '@@ducks/places';
-import { Places } from '@@ducks/places/models';
 import { DETAIL_PLACE_SCREEN } from '@@navigation/index';
-
-interface StateProps {
-  readonly places: Places;
-}
-
-interface OwnProps {
-  readonly componentId: string;
-}
-
-const mapStateToProps = (
-  state: Types.RootState,
-  ownProps: OwnProps
-): StateProps => ({
-  places: placesSelectors.getPlaces(state).places,
-});
-
-type Props = StateProps & OwnProps;
-
+import { Props } from './find-place.container';
 class FindPlaceScreen extends React.PureComponent<Props> {
   render(): JSX.Element {
     return (
@@ -57,4 +35,4 @@ class FindPlaceScreen extends React.PureComponent<Props> {
   };
 }
 
-export default connect(mapStateToProps)(FindPlaceScreen);
+export default FindPlaceScreen;

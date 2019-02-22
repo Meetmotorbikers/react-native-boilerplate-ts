@@ -2,10 +2,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 
 import { PlaceInput } from '@@components/index';
-
-interface Props {
-  readonly onAddPlace: (placeName: string) => void;
-}
+import { Props } from './share-place.container';
 
 export default class SharePlaceScreen extends React.PureComponent<Props> {
   render(): JSX.Element {
