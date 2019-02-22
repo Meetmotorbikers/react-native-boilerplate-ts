@@ -7,3 +7,4 @@ export const STORYBOOK_UI = 'storybook.UI';
 export const AUTH_SCREEN = 'demo.AuthScreen';
 export const SHARE_PLACES_SCREEN = 'demo.SharePlaceScreen';
 export const FIND_PLACES_SCREEN = 'demo.FindPlaceScreen';
+export const DETAIL_PLACE_SCREEN = 'demo.DetailPlaceScreen';

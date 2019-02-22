@@ -44,8 +44,7 @@ const reducer: Reducer<PlacesState, PlacesAction> = (
     // 'DELETE_PLACE'
     case getType(placesActions.remove): {
       const { selectedPlace } = state;
-      if (!selectedPlace) break;
-
+      if (!selectedPlace) return state;
       return {
         ...state,
         places: R.reject(place => place.id === selectedPlace.id, state.places),

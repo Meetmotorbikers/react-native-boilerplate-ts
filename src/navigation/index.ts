@@ -6,4 +6,5 @@ export {
   pushStorybookScreen,
   pushAuthScreen,
   startMainTabs,
+  pushDetailPlaceScreen,
 } from './navigation';

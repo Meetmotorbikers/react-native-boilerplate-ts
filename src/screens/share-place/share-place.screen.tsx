@@ -11,11 +11,11 @@ export default class SharePlaceScreen extends React.PureComponent<Props> {
   render(): JSX.Element {
     return (
       <View>
-        <PlaceInput onAdd={this.handleOnAdd} />
+        <PlaceInput onAdd={this.placeAddedHandler} />
       </View>
     );
   }
 
-  private handleOnAdd = (placeName: string): void =>
+  private placeAddedHandler = (placeName: string): void =>
     this.props.onAddPlace(placeName);
 }

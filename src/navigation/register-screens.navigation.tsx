@@ -5,6 +5,7 @@ import {
   AuthScreen,
   FindPlaceScreen,
   LoginScreen,
+  PlaceDetailScreen,
   SharePlaceScreenContainer,
   SingleAppScreen,
   Tab1Screen,
@@ -18,6 +19,7 @@ import { Provider } from '@@redux/index';
 
 import {
   AUTH_SCREEN,
+  DETAIL_PLACE_SCREEN,
   FIND_PLACES_SCREEN,
   LOGIN_SCREEN,
   SHARE_PLACES_SCREEN,
@@ -64,6 +66,10 @@ export default (): void => {
   );
   Navigation.registerComponent(FIND_PLACES_SCREEN, () =>
     WrappedComponent(FindPlaceScreen)
+  );
+
+  Navigation.registerComponent(DETAIL_PLACE_SCREEN, () =>
+    WrappedComponent(PlaceDetailScreen)
   );
 
   // tslint:disable-next-line:no-console

@@ -10,3 +10,7 @@ export { default as SharePlaceScreen } from './share-place/share-place.screen';
 export {
   default as SharePlaceScreenContainer,
 } from './share-place/share-place.container';
+
+export {
+  default as PlaceDetailScreen,
+} from './place-detail/place-detail.screen';
