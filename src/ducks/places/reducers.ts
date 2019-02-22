@@ -10,18 +10,16 @@ export type PlacesAction = ActionType<typeof placesActions>;
 
 export interface PlacesState {
   readonly places: Places;
-  readonly selectedPlace: null | Place;
 }
 
 const initialState: PlacesState = {
   places: [],
-  selectedPlace: null,
 };
 
 const reducer: Reducer<PlacesState, PlacesAction> = (
   state = initialState,
   action
-) => {
+): PlacesState => {
   switch (action.type) {
     // 'ADD_PLACE'
     case getType(placesActions.add): {
@@ -43,12 +41,9 @@ const reducer: Reducer<PlacesState, PlacesAction> = (
 
     // 'DELETE_PLACE'
     case getType(placesActions.remove): {
-      const { selectedPlace } = state;
-      if (!selectedPlace) return state;
       return {
         ...state,
-        places: R.reject(place => place.id === selectedPlace.id, state.places),
-        selectedPlace: null,
+        places: R.reject(place => place.id === action.payload.id, state.places),
       };
     }
 

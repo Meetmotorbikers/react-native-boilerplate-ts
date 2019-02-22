@@ -6,31 +6,50 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { connect } from 'react-redux';
 import styled from 'styled-components/native';
+import Types from 'Types';
 
-interface Props {
+import { Navigation } from 'react-native-navigation';
+
+import { placesAction } from '@@ducks/places';
+interface DispatchProps {
+  readonly onItemDeleted: (key: string) => void;
+}
+
+interface OwnProps {
+  readonly componentId: string;
   readonly selectedPlace: {
     readonly image: ImageSourcePropType;
     readonly name: string;
     readonly id: string;
   };
-  readonly onItemDeleted: () => void;
   readonly onModalClose: () => void;
 }
 
-const PlaceDetails: React.FC<Props> = ({ selectedPlace, onItemDeleted }) => {
-  return (
-    <Container>
-      <View>
-        <PlaceImage source={selectedPlace.image} />
-        <PlaceName>{selectedPlace.name}</PlaceName>
-      </View>
-      <View>
-        <DeleteButton onPress={onItemDeleted} />
-      </View>
-    </Container>
-  );
-};
+type Props = OwnProps & DispatchProps;
+
+class PlaceDetails extends React.PureComponent<Props> {
+  render(): JSX.Element {
+    const { selectedPlace } = this.props;
+    return (
+      <Container>
+        <View>
+          <PlaceImage source={selectedPlace.image} />
+          <PlaceName>{selectedPlace.name}</PlaceName>
+        </View>
+        <View>
+          <DeleteButton onPress={this.placeDeletedHandler} />
+        </View>
+      </Container>
+    );
+  }
+
+  private placeDeletedHandler = (): void => {
+    this.props.onItemDeleted(this.props.selectedPlace.id);
+    Navigation.pop(this.props.componentId);
+  };
+}
 
 const Container = styled.View`
   margin: 22px;
@@ -61,4 +80,13 @@ const DeleteButton: React.FC<{
   </TouchableOpacity>
 );
 
-export default PlaceDetails;
+const mapDispatchToProps = (
+  dispatch: Types.DispatchTypeSafe
+): DispatchProps => ({
+  onItemDeleted: id => dispatch(placesAction.remove(id)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(PlaceDetails);
