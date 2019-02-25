@@ -18,8 +18,8 @@
  * of `epics` which I also like.
  */
 
+import Types from 'MyTypes';
 import { ThunkAction } from 'redux-thunk';
-import Types from 'Types';
 import * as actions from './actions';
 
 type ThunkResult<R> = ThunkAction<

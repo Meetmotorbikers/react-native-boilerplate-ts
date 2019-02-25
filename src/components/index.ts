@@ -11,3 +11,6 @@ export {
 export {
   default as ReactNativeLocalizeExample,
 } from './react-native-localize/react-native-localize.component';
+export { default as PlaceInput } from './place-input/place-input.component';
+export { default as PlaceItem } from './place-item/place-item.component';
+export { default as PlaceList } from './place-list/place-list.component';

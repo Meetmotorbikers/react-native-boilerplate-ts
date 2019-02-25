@@ -5,5 +5,12 @@ export { default as Tab1Screen } from './tab-1/tab-1.screen';
 export { default as Tab2Screen } from './tab-2/tab-2.screen';
 
 export { default as AuthScreen } from './auth/auth.screen';
-export { default as FindPlaceScreen } from './find-place/find-place.screen';
-export { default as SharePlaceScreen } from './share-place/share-place.screen';
+export { default as SideDrawerScreen } from './side-drawer/side-drawer.screen';
+
+export { default as FindPlaceScreen } from './find-place/find-place.container';
+export {
+  default as SharePlaceScreen,
+} from './share-place/share-place.container';
+export {
+  default as PlaceDetailScreen,
+} from './place-detail/place-detail.container';

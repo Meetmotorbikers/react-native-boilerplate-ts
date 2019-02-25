@@ -85,6 +85,7 @@ module.exports = {
   moduleNameMapper: {
     '^@@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@@config/(.*)$': '<rootDir>/src/config/$1',
+    '^@@constants/(.*)$': '<rootDir>/src/constants/$1',
     '^@@utils/(.*)$': '<rootDir>/src/utils/$1',
     '^@@locale/(.*)$': '<rootDir>/src/locale/$1',
     '^@@components/(.*)$': '<rootDir>/src/components/$1',
