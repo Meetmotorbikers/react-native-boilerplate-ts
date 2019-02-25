@@ -2,10 +2,11 @@ import { Navigation } from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
-  AUTH_SCREEN,
   FIND_PLACES_SCREEN,
   SHARE_PLACES_SCREEN,
   SIDE_DRAWER_SCREEN,
+  SIGN_IN_SCREEN,
+  SIGN_UP_SCREEN,
   SINGLE_APP_SCREEN,
   STORYBOOK_UI,
   TAB1_SCREEN,
@@ -29,24 +30,22 @@ export function pushAuthScreen(): void {
   Navigation.setRoot({
     root: {
       stack: {
+        options: {},
         children: [
           {
             component: {
-              name: AUTH_SCREEN,
+              name: SIGN_UP_SCREEN,
               options: {},
-              passProps: {
-                text: 'stack with one child',
-              },
+            },
+          },
+
+          {
+            component: {
+              name: SIGN_IN_SCREEN,
+              options: {},
             },
           },
         ],
-        options: {
-          topBar: {
-            title: {
-              text: 'Login',
-            },
-          },
-        },
       },
     },
   });

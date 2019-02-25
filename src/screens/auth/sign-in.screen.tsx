@@ -43,7 +43,7 @@ interface State {
   readonly password: string;
 }
 
-class AuthScreen extends React.PureComponent<Props, State> {
+class SignIn extends React.PureComponent<Props, State> {
   state: State = {
     email: '',
     password: '',
@@ -151,4 +151,4 @@ class AuthScreen extends React.PureComponent<Props, State> {
     this.setState(prevState => ({ email }));
 }
 
-export default AuthScreen;
+export default SignIn;
