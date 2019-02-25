@@ -1,4 +1,4 @@
-package com.react_native_boilerplate_ts;
+package com.exodus;
 
 import android.app.Application;
 
