@@ -2,12 +2,13 @@ import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
 
 import {
-  AuthScreen,
   FindPlaceScreen,
   LoginScreen,
   PlaceDetailScreen,
   SharePlaceScreen,
   SideDrawerScreen,
+  SignInScreen,
+  SignUpScreen,
   SingleAppScreen,
   Tab1Screen,
   Tab2Screen,
@@ -19,12 +20,13 @@ import StorybookUIRoot from '../../tools/storybook';
 import { Provider } from '@@redux/index';
 
 import {
-  AUTH_SCREEN,
   DETAIL_PLACE_SCREEN,
   FIND_PLACES_SCREEN,
   LOGIN_SCREEN,
   SHARE_PLACES_SCREEN,
   SIDE_DRAWER_SCREEN,
+  SIGN_IN_SCREEN,
+  SIGN_UP_SCREEN,
   SINGLE_APP_SCREEN,
   STORYBOOK_UI,
   TAB1_SCREEN,
@@ -62,8 +64,6 @@ export default (): void => {
   Navigation.registerComponent(STORYBOOK_UI, () => StorybookUIRoot);
 
   /** CUSTOM APP screens */
-  Navigation.registerComponent(AUTH_SCREEN, () => WrappedComponent(AuthScreen));
-
   Navigation.registerComponent(SIDE_DRAWER_SCREEN, () => SideDrawerScreen);
 
   Navigation.registerComponent(SHARE_PLACES_SCREEN, () =>
@@ -75,6 +75,14 @@ export default (): void => {
 
   Navigation.registerComponent(DETAIL_PLACE_SCREEN, () =>
     WrappedComponent(PlaceDetailScreen)
+  );
+
+  // EXODUS APP
+  Navigation.registerComponent(SIGN_IN_SCREEN, () =>
+    WrappedComponent(SignInScreen)
+  );
+  Navigation.registerComponent(SIGN_UP_SCREEN, () =>
+    WrappedComponent(SignUpScreen)
   );
 
   // tslint:disable-next-line:no-console
