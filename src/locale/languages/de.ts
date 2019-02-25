@@ -1,4 +1,4 @@
-import Types from 'Types';
+import Types from 'MyTypes';
 
 const de: Types.Locale = {
   title: 'Example',

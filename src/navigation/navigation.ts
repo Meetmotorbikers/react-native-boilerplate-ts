@@ -1,7 +1,11 @@
 import { Navigation } from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
   AUTH_SCREEN,
+  FIND_PLACES_SCREEN,
+  SHARE_PLACES_SCREEN,
+  SIDE_DRAWER_SCREEN,
   SINGLE_APP_SCREEN,
   STORYBOOK_UI,
   TAB1_SCREEN,
@@ -10,6 +14,12 @@ import {
 } from './screens.navigation';
 
 import registerScreens from './register-screens.navigation';
+
+const FIND_PLACE = 'Find Place';
+const SHARE_PLACE = 'Share Place';
+
+import { LEFT_SIDE_MENU_ID } from 'src/constants';
+import testIDs from 'src/constants/testIDs';
 
 /** Register all screens on launch */
 registerScreens();
@@ -39,6 +49,107 @@ export function pushAuthScreen(): void {
         },
       },
     },
+  });
+}
+
+export function startMainTabs(): void {
+  Promise.all([
+    Icon.getImageSource('md-map', 30),
+    Icon.getImageSource('ios-share-alt', 30),
+    Icon.getImageSource('ios-menu', 30),
+  ]).then(sources => {
+    Navigation.setRoot({
+      root: {
+        sideMenu: {
+          left: {
+            component: {
+              name: SIDE_DRAWER_SCREEN,
+            },
+          },
+          center: {
+            bottomTabs: {
+              children: [
+                {
+                  stack: {
+                    children: [
+                      {
+                        component: {
+                          name: FIND_PLACES_SCREEN,
+                          passProps: {
+                            label: FIND_PLACE,
+                          },
+                          options: {
+                            topBar: {
+                              testID: testIDs.TOP_BAR_FIND_PLACE,
+                              title: {
+                                text: FIND_PLACE,
+                              },
+                              leftButtons: [
+                                {
+                                  icon: sources[2],
+                                  text: 'Menu',
+                                  id: LEFT_SIDE_MENU_ID,
+                                  color: '#007AFF',
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                    options: {
+                      bottomTab: {
+                        testID: 'FIND_PLACES_SCREEN',
+                        text: FIND_PLACE,
+                        icon: sources[0],
+                        selectedIconColor: '#007AFF',
+                      },
+                    },
+                  },
+                },
+                {
+                  stack: {
+                    children: [
+                      {
+                        component: {
+                          name: SHARE_PLACES_SCREEN,
+                          passProps: {
+                            label: SHARE_PLACE,
+                          },
+                          options: {
+                            topBar: {
+                              title: {
+                                text: SHARE_PLACE,
+                              },
+                              leftButtons: [
+                                {
+                                  icon: sources[2],
+                                  text: 'Menu',
+                                  id: LEFT_SIDE_MENU_ID,
+                                  color: '#007AFF',
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                    options: {
+                      bottomTab: {
+                        testID: 'SHARE_PLACES_SCREEN',
+                        text: SHARE_PLACE,
+                        icon: sources[1],
+                        selectedIconColor: '#007AFF',
+                      },
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+    });
   });
 }
 
