@@ -1,3 +1,4 @@
+// tslint:disable no-object-mutation no-hardcoded-credentials
 import Types from 'MyTypes';
 
 const de: Types.Locale = {
@@ -10,6 +11,17 @@ const de: Types.Locale = {
   },
   greetings: 'Willkommen zu React Native!',
   instructions: 'Bearbeiten Sie zunächst app.tsx',
+  login: {
+    title: 'EINLOGGEN',
+    withFacebook: 'Einloggen mit Facebook',
+    withGoogle: 'Einloggen mit Google',
+    dontHaveAnAccount: 'Hast du noch keinen Account?',
+    signUpNow: 'Jetzt Registrieren',
+    or: 'oder',
+    passwordForgotten: 'Passwort vergessen?',
+    placeholderEmail: 'Email Addresse',
+    placeholderPassword: 'Passwort',
+  },
 };
 
 export default de;

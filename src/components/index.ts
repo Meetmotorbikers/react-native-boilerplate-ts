@@ -14,3 +14,6 @@ export {
 export { default as PlaceInput } from './place-input/place-input.component';
 export { default as PlaceItem } from './place-item/place-item.component';
 export { default as PlaceList } from './place-list/place-list.component';
+
+export { default as AuthFooter } from './auth-footer/auth-footer.component';
+export { default as Link } from './link/link.component';
