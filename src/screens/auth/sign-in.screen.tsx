@@ -1,3 +1,4 @@
+// tslint:disable: no-console
 import * as _ from 'lodash';
 import * as React from 'react';
 import { Alert, Text } from 'react-native';
@@ -136,7 +137,7 @@ class SignIn extends React.PureComponent<Props, State> {
       [
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
+          onPress: (): void => console.log('Cancel Pressed'),
           style: 'cancel',
         },
       ],

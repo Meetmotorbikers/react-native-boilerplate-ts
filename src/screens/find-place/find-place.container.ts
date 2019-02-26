@@ -1,7 +1,7 @@
 import { placesSelectors } from '@@ducks/places';
 import { Places } from '@@ducks/places/models';
+import MyTypes from 'MyTypes';
 import { connect } from 'react-redux';
-import Types from 'MyTypes';
 
 import FindPlaceScreen from './find-place.screen';
 
@@ -14,7 +14,7 @@ interface OwnProps {
 }
 
 const mapStateToProps = (
-  state: Types.RootState,
+  state: MyTypes.RootState,
   ownProps: OwnProps
 ): StateProps => ({
   places: placesSelectors.getPlaces(state).places,
