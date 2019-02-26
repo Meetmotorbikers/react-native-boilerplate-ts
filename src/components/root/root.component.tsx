@@ -4,7 +4,7 @@ import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 interface Props {
   readonly style?: StyleProp<ViewStyle>;
   readonly componentId: string;
-  readonly footer: string;
+  readonly footer?: string;
 }
 
 const Root: React.FC<Props> = props => (

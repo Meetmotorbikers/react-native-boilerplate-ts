@@ -6,7 +6,7 @@ type Component = string | LayoutStackChildren;
 export const stack = (
   rawChildren: Component[] | Component,
   id?: string
-): Layout<{}> => {
+): Layout => {
   const childrenArray = isArray(rawChildren) ? rawChildren : [rawChildren];
 
   const children: LayoutStackChildren[] = childrenArray.map(child =>
