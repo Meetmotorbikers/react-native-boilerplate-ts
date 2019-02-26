@@ -19,20 +19,7 @@ import StorybookUIRoot from '../../tools/storybook';
 
 import { Provider } from '@@redux/index';
 
-import {
-  DETAIL_PLACE_SCREEN,
-  FIND_PLACES_SCREEN,
-  LOGIN_SCREEN,
-  SHARE_PLACES_SCREEN,
-  SIDE_DRAWER_SCREEN,
-  SIGN_IN_SCREEN,
-  SIGN_UP_SCREEN,
-  SINGLE_APP_SCREEN,
-  STORYBOOK_UI,
-  TAB1_SCREEN,
-  TAB2_SCREEN,
-  WELCOME_SCREEN,
-} from './screens.navigation';
+import * as screens from './screens';
 
 const WrappedComponent = (Component: React.ComponentType<any>) => (
   props: any
@@ -46,42 +33,49 @@ const WrappedComponent = (Component: React.ComponentType<any>) => (
 };
 
 // Register Screens
-export default (): void => {
+export const registerScreens = (): void => {
   /**  REACT-NATIVE-NAVIGATION screens */
-  Navigation.registerComponent(WELCOME_SCREEN, () =>
+  Navigation.registerComponent(screens.WELCOME_SCREEN, () =>
     WrappedComponent(WelcomeScreen)
   );
-  Navigation.registerComponent(LOGIN_SCREEN, () =>
+  Navigation.registerComponent(screens.LOGIN_SCREEN, () =>
     WrappedComponent(LoginScreen)
   );
-  Navigation.registerComponent(SINGLE_APP_SCREEN, () =>
+  Navigation.registerComponent(screens.SINGLE_APP_SCREEN, () =>
     WrappedComponent(SingleAppScreen)
   );
-  Navigation.registerComponent(TAB1_SCREEN, () => WrappedComponent(Tab1Screen));
-  Navigation.registerComponent(TAB2_SCREEN, () => WrappedComponent(Tab2Screen));
+  Navigation.registerComponent(screens.TAB1_SCREEN, () =>
+    WrappedComponent(Tab1Screen)
+  );
+  Navigation.registerComponent(screens.TAB2_SCREEN, () =>
+    WrappedComponent(Tab2Screen)
+  );
 
   /** STORYBOOK UI screens  */
-  Navigation.registerComponent(STORYBOOK_UI, () => StorybookUIRoot);
+  Navigation.registerComponent(screens.STORYBOOK_UI, () => StorybookUIRoot);
 
   /** CUSTOM APP screens */
-  Navigation.registerComponent(SIDE_DRAWER_SCREEN, () => SideDrawerScreen);
+  Navigation.registerComponent(
+    screens.SIDE_DRAWER_SCREEN,
+    () => SideDrawerScreen
+  );
 
-  Navigation.registerComponent(SHARE_PLACES_SCREEN, () =>
+  Navigation.registerComponent(screens.SHARE_PLACES_SCREEN, () =>
     WrappedComponent(SharePlaceScreen)
   );
-  Navigation.registerComponent(FIND_PLACES_SCREEN, () =>
+  Navigation.registerComponent(screens.FIND_PLACES_SCREEN, () =>
     WrappedComponent(FindPlaceScreen)
   );
 
-  Navigation.registerComponent(DETAIL_PLACE_SCREEN, () =>
+  Navigation.registerComponent(screens.DETAIL_PLACE_SCREEN, () =>
     WrappedComponent(PlaceDetailScreen)
   );
 
   // EXODUS APP
-  Navigation.registerComponent(SIGN_IN_SCREEN, () =>
+  Navigation.registerComponent(screens.SIGN_IN_SCREEN, () =>
     WrappedComponent(SignInScreen)
   );
-  Navigation.registerComponent(SIGN_UP_SCREEN, () =>
+  Navigation.registerComponent(screens.SIGN_UP_SCREEN, () =>
     WrappedComponent(SignUpScreen)
   );
 

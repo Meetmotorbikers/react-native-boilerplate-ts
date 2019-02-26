@@ -1,7 +1,7 @@
 import { placesAction } from '@@ducks/places';
+import MyTypes from 'MyTypes';
 import { ImageSourcePropType } from 'react-native';
 import { connect } from 'react-redux';
-import Types from 'MyTypes';
 
 import PlaceDetails from './place-detail.screen';
 
@@ -22,7 +22,7 @@ interface OwnProps {
 export type Props = OwnProps & DispatchProps;
 
 const mapDispatchToProps = (
-  dispatch: Types.DispatchTypeSafe
+  dispatch: MyTypes.DispatchTypeSafe
 ): DispatchProps => ({
   onItemDeleted: id => dispatch(placesAction.remove(id)),
 });

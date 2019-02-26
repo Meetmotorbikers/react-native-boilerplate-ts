@@ -1,7 +1,9 @@
 enum Render {
-  StoryBook, // 0
-  ReactNativeNavigation, // 1
-  App, // 2
+  Storybook, // 0
+  App, // 1
+  RNNTutorial, // 2
+
+  RNNPlayground, // 3
 }
 
 interface Config {
