@@ -3,7 +3,10 @@ import { Navigation } from 'react-native-navigation';
 
 import {
   FindPlaceScreen,
+  LayoutScreen,
   LoginScreen,
+  NavigationScreen,
+  OptionsScreen,
   PlaceDetailScreen,
   SharePlaceScreen,
   SideDrawerScreen,
@@ -34,7 +37,7 @@ const WrappedComponent = (Component: React.ComponentType<any>) => (
 
 // Register Screens
 export const registerScreens = (): void => {
-  /**  REACT-NATIVE-NAVIGATION screens */
+  /**  RNN TUTORIAL screens */
   Navigation.registerComponent(screens.WELCOME_SCREEN, () =>
     WrappedComponent(WelcomeScreen)
   );
@@ -50,6 +53,11 @@ export const registerScreens = (): void => {
   Navigation.registerComponent(screens.TAB2_SCREEN, () =>
     WrappedComponent(Tab2Screen)
   );
+
+  /**  RNN PLAYGROUND screens */
+  Navigation.registerComponent(screens.Layouts, () => LayoutScreen);
+  Navigation.registerComponent(screens.Options, () => OptionsScreen);
+  Navigation.registerComponent(screens.Navigation, () => NavigationScreen);
 
   /** STORYBOOK UI screens  */
   Navigation.registerComponent(screens.STORYBOOK_UI, () => StorybookUIRoot);

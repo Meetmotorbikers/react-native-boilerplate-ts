@@ -7,7 +7,7 @@ import {
   Navigation,
   Options,
 } from 'react-native-navigation';
-import { component, stack } from '../commons/Layouts';
+import { component, stack } from '../commons/layouts';
 
 interface Props {
   readonly componentId: string;
@@ -54,7 +54,12 @@ const pop = (selfOrCompId: SelfOrCompId): Promise<any> =>
   Navigation.pop(compId(selfOrCompId));
 
 const showModal = (
-  screen: string | string[] | LayoutStackChildren | LayoutStackChildren[]
+  screen:
+    | string
+    | string[]
+    | LayoutStackChildren
+    | LayoutStackChildren[]
+    | Layout
 ): Promise<any> => {
   const layout = isString(screen) ? stack(screen) : screen;
 
