@@ -1,3 +1,4 @@
+// tslint:disable: no-console
 import * as React from 'react';
 import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Navigation } from 'react-native-navigation';

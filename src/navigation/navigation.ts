@@ -1,55 +1,13 @@
 import { Navigation } from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import {
-  FIND_PLACES_SCREEN,
-  SHARE_PLACES_SCREEN,
-  SIDE_DRAWER_SCREEN,
-  SIGN_IN_SCREEN,
-  SIGN_UP_SCREEN,
-  SINGLE_APP_SCREEN,
-  STORYBOOK_UI,
-  TAB1_SCREEN,
-  TAB2_SCREEN,
-  WELCOME_SCREEN,
-} from './screens.navigation';
-
-import registerScreens from './register-screens.navigation';
+import * as screens from './screens';
 
 const FIND_PLACE = 'Find Place';
 const SHARE_PLACE = 'Share Place';
 
 import { LEFT_SIDE_MENU_ID } from 'src/constants';
 import testIDs from 'src/constants/testIDs';
-
-/** Register all screens on launch */
-registerScreens();
-
-// start the app on auth screen:
-export function pushAuthScreen(): void {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        options: {},
-        children: [
-          {
-            component: {
-              name: SIGN_UP_SCREEN,
-              options: {},
-            },
-          },
-
-          {
-            component: {
-              name: SIGN_IN_SCREEN,
-              options: {},
-            },
-          },
-        ],
-      },
-    },
-  });
-}
 
 export function startMainTabs(): void {
   Promise.all([
@@ -62,7 +20,7 @@ export function startMainTabs(): void {
         sideMenu: {
           left: {
             component: {
-              name: SIDE_DRAWER_SCREEN,
+              name: screens.SIDE_DRAWER_SCREEN,
             },
           },
           center: {
@@ -73,7 +31,7 @@ export function startMainTabs(): void {
                     children: [
                       {
                         component: {
-                          name: FIND_PLACES_SCREEN,
+                          name: screens.FIND_PLACES_SCREEN,
                           passProps: {
                             label: FIND_PLACE,
                           },
@@ -111,7 +69,7 @@ export function startMainTabs(): void {
                     children: [
                       {
                         component: {
-                          name: SHARE_PLACES_SCREEN,
+                          name: screens.SHARE_PLACES_SCREEN,
                           passProps: {
                             label: SHARE_PLACE,
                           },
@@ -152,71 +110,6 @@ export function startMainTabs(): void {
   });
 }
 
-export function pushStorybookScreen(): void {
-  Navigation.setRoot({
-    root: {
-      component: {
-        name: STORYBOOK_UI,
-      },
-    },
-  });
-}
-
-export function pushTutorialScreen(): void {
-  Navigation.setDefaultOptions({
-    topBar: {
-      background: {
-        color: '#039893',
-      },
-      title: {
-        color: 'white',
-      },
-      backButton: {
-        title: '', // Remove previous screen name from back button
-        color: 'white',
-      },
-      buttonColor: 'white',
-    },
-    statusBar: {
-      style: 'light',
-    },
-    layout: {
-      orientation: ['portrait'],
-    },
-    bottomTabs: {
-      titleDisplayMode: 'alwaysShow',
-    },
-    bottomTab: {
-      textColor: 'gray',
-      selectedTextColor: 'black',
-      iconColor: 'gray',
-      selectedIconColor: 'black',
-    },
-  });
-
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: WELCOME_SCREEN,
-              options: {
-                topBar: {
-                  visible: false,
-                },
-                statusBar: {
-                  style: 'dark',
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
-  });
-}
-
 export function pushSingleScreenApp(): void {
   Navigation.setRoot({
     root: {
@@ -224,7 +117,7 @@ export function pushSingleScreenApp(): void {
         children: [
           {
             component: {
-              name: SINGLE_APP_SCREEN,
+              name: screens.SINGLE_APP_SCREEN,
               options: {
                 topBar: {
                   title: {
@@ -266,7 +159,7 @@ export function pushTabBasedApp(): void {
               children: [
                 {
                   component: {
-                    name: TAB1_SCREEN,
+                    name: screens.TAB1_SCREEN,
                     options: {
                       topBar: {
                         title: {
@@ -305,7 +198,7 @@ export function pushTabBasedApp(): void {
               children: [
                 {
                   component: {
-                    name: TAB2_SCREEN,
+                    name: screens.TAB2_SCREEN,
                     options: {
                       topBar: {
                         title: {

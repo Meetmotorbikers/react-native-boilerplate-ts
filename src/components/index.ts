@@ -17,3 +17,6 @@ export { default as PlaceList } from './place-list/place-list.component';
 
 export { default as AuthFooter } from './auth-footer/auth-footer.component';
 export { default as Link } from './link/link.component';
+
+export { default as Bounds } from './bounds/bounds.component';
+export { default as Root } from './root/root.component';
