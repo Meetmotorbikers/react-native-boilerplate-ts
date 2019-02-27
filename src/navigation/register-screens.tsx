@@ -2,14 +2,11 @@ import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
 
 import {
-  FindPlaceScreen,
+  AwesomePlaces,
   LayoutScreen,
   LoginScreen,
   NavigationScreen,
   OptionsScreen,
-  PlaceDetailScreen,
-  SharePlaceScreen,
-  SideDrawerScreen,
   SignInScreen,
   SignUpScreen,
   SingleAppScreen,
@@ -62,21 +59,19 @@ export const registerScreens = (): void => {
   /** STORYBOOK UI screens  */
   Navigation.registerComponent(screens.STORYBOOK_UI, () => StorybookUIRoot);
 
-  /** CUSTOM APP screens */
+  /** AWESOME PLACES screens */
   Navigation.registerComponent(
     screens.SIDE_DRAWER_SCREEN,
-    () => SideDrawerScreen
+    () => AwesomePlaces.SideDrawerScreen
   );
-
   Navigation.registerComponent(screens.SHARE_PLACES_SCREEN, () =>
-    WrappedComponent(SharePlaceScreen)
+    WrappedComponent(AwesomePlaces.SharePlaceScreen)
   );
   Navigation.registerComponent(screens.FIND_PLACES_SCREEN, () =>
-    WrappedComponent(FindPlaceScreen)
+    WrappedComponent(AwesomePlaces.FindPlaceScreen)
   );
-
   Navigation.registerComponent(screens.DETAIL_PLACE_SCREEN, () =>
-    WrappedComponent(PlaceDetailScreen)
+    WrappedComponent(AwesomePlaces.PlaceDetailScreen)
   );
 
   // EXODUS APP
