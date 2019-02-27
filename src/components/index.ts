@@ -11,3 +11,12 @@ export {
 export {
   default as ReactNativeLocalizeExample,
 } from './react-native-localize/react-native-localize.component';
+export { default as PlaceInput } from './place-input/place-input.component';
+export { default as PlaceItem } from './place-item/place-item.component';
+export { default as PlaceList } from './place-list/place-list.component';
+
+export { default as AuthFooter } from './auth-footer/auth-footer.component';
+export { default as Link } from './link/link.component';
+
+export { default as Bounds } from './bounds/bounds.component';
+export { default as Root } from './root/root.component';

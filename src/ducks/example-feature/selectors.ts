@@ -10,7 +10,7 @@
  * ** interface ** of the duck.
  */
 
-import Types from 'Types';
+import Types from 'MyTypes';
 
 export const checkIfDuckIsInRange = (state: Types.RootState): boolean =>
   state.duck.distance > 1000;

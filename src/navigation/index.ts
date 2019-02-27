@@ -1,8 +1,13 @@
-export * from './screens.navigation';
+import Navigation from 'src/services/navigation';
+import * as navigationRoot from './navigation-root';
+import * as screens from './screens';
+
 export {
-  pushTutorialScreen,
   pushSingleScreenApp,
   pushTabBasedApp,
-  pushStorybookScreen,
-  pushAuthScreen,
+  startMainTabs,
+  goHome,
+  goToAuth,
 } from './navigation';
+export { registerScreens } from './register-screens';
+export { screens, navigationRoot, Navigation };

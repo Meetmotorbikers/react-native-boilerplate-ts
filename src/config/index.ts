@@ -1,18 +1,19 @@
 enum Render {
-  StoryBook, // 0
-  ReactNativeNavigation, // 1
-  App, // 2
+  Storybook, // 0
+  App, // 1
+  RNNTutorial, // 2
+
+  RNNPlayground, // 3
 }
 
 interface Config {
-  readonly shouldDisplayStorybook: boolean;
   readonly selectWhatToRender: Render;
+  readonly USER_KEY: string;
 }
 
 const config: Config = {
-  shouldDisplayStorybook: true,
-
   selectWhatToRender: Render.App,
+  USER_KEY: 'USER_KEY',
 };
 
 export default config;

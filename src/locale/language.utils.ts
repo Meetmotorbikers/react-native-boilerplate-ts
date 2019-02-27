@@ -1,8 +1,8 @@
 // tslint:disable: no-object-mutation readonly-keyword
 import i18n from 'i18n-js';
+import MyTypes from 'MyTypes';
 import { I18nManager } from 'react-native';
 import * as RNLocalize from 'react-native-localize';
-import Types from 'Types';
 
 interface FallBack {
   languageTag: 'en';
@@ -11,8 +11,8 @@ interface FallBack {
 
 const translationGetters = {
   // lazy requires (metro bundler does not support symlinks)
-  en: () => require('../locale/languages/en') as Types.Locale,
-  de: () => require('../locale/languages/de') as Types.Locale,
+  en: () => require('../locale/languages/en') as MyTypes.Locale,
+  de: () => require('../locale/languages/de') as MyTypes.Locale,
 };
 
 export const setLocale = (locale: string) => (i18n.locale = locale);

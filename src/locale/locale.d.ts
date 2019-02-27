@@ -1,5 +1,5 @@
-import { en } from './languages/en';
+const en = require('./languages/en');
 
-declare module 'Types' {
+declare module 'MyTypes' {
   export type Locale = typeof en;
 }

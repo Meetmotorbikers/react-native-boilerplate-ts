@@ -1,4 +1,3 @@
-// tslint:disable: import-name
 /**
  * @description Index
  * This file, from a module perspective, behaves as the duck file from the original proposal.

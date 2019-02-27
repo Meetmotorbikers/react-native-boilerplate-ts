@@ -1,109 +1,112 @@
 import { Navigation } from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import {
-  AUTH_SCREEN,
-  SINGLE_APP_SCREEN,
-  STORYBOOK_UI,
-  TAB1_SCREEN,
-  TAB2_SCREEN,
-  WELCOME_SCREEN,
-} from './screens.navigation';
+import * as screens from './screens';
 
-import registerScreens from './register-screens.navigation';
+const FIND_PLACE = 'Find Place';
+const SHARE_PLACE = 'Share Place';
 
-/** Register all screens on launch */
-registerScreens();
+import { LEFT_SIDE_MENU_ID } from 'src/constants';
+import testIDs from 'src/constants/testIDs';
 
-// start the app on auth screen:
-export function pushAuthScreen(): void {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
+export function startMainTabs(): Promise<void> {
+  return Promise.all([
+    Icon.getImageSource('md-map', 30),
+    Icon.getImageSource('ios-share-alt', 30),
+    Icon.getImageSource('ios-menu', 30),
+  ]).then(([mapIcon, shareIcon, menuIcon]) => {
+    Navigation.setRoot({
+      root: {
+        sideMenu: {
+          left: {
             component: {
-              name: AUTH_SCREEN,
-              options: {},
-              passProps: {
-                text: 'stack with one child',
-              },
+              name: screens.SIDE_DRAWER_SCREEN,
             },
           },
-        ],
-        options: {
-          topBar: {
-            title: {
-              text: 'Login',
+          center: {
+            bottomTabs: {
+              children: [
+                {
+                  stack: {
+                    children: [
+                      {
+                        component: {
+                          name: screens.FIND_PLACES_SCREEN,
+                          passProps: {
+                            label: FIND_PLACE,
+                          },
+                          options: {
+                            topBar: {
+                              testID: testIDs.TOP_BAR_FIND_PLACE,
+                              title: {
+                                text: FIND_PLACE,
+                              },
+                              leftButtons: [
+                                {
+                                  icon: menuIcon,
+                                  text: 'Menu',
+                                  id: LEFT_SIDE_MENU_ID,
+                                  color: '#007AFF',
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                    options: {
+                      bottomTab: {
+                        testID: 'FIND_PLACES_SCREEN',
+                        text: FIND_PLACE,
+                        icon: mapIcon,
+                        selectedIconColor: '#007AFF',
+                      },
+                    },
+                  },
+                },
+                {
+                  stack: {
+                    children: [
+                      {
+                        component: {
+                          name: screens.SHARE_PLACES_SCREEN,
+                          passProps: {
+                            label: SHARE_PLACE,
+                          },
+                          options: {
+                            topBar: {
+                              title: {
+                                text: SHARE_PLACE,
+                              },
+                              leftButtons: [
+                                {
+                                  icon: menuIcon,
+                                  text: 'Menu',
+                                  id: LEFT_SIDE_MENU_ID,
+                                  color: '#007AFF',
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                    options: {
+                      bottomTab: {
+                        testID: 'SHARE_PLACES_SCREEN',
+                        text: SHARE_PLACE,
+                        icon: shareIcon,
+                        selectedIconColor: '#007AFF',
+                      },
+                    },
+                  },
+                },
+              ],
             },
           },
         },
       },
-    },
-  });
-}
-
-export function pushStorybookScreen(): void {
-  Navigation.setRoot({
-    root: {
-      component: {
-        name: STORYBOOK_UI,
-      },
-    },
-  });
-}
-
-export function pushTutorialScreen(): void {
-  Navigation.setDefaultOptions({
-    topBar: {
-      background: {
-        color: '#039893',
-      },
-      title: {
-        color: 'white',
-      },
-      backButton: {
-        title: '', // Remove previous screen name from back button
-        color: 'white',
-      },
-      buttonColor: 'white',
-    },
-    statusBar: {
-      style: 'light',
-    },
-    layout: {
-      orientation: ['portrait'],
-    },
-    bottomTabs: {
-      titleDisplayMode: 'alwaysShow',
-    },
-    bottomTab: {
-      textColor: 'gray',
-      selectedTextColor: 'black',
-      iconColor: 'gray',
-      selectedIconColor: 'black',
-    },
-  });
-
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: WELCOME_SCREEN,
-              options: {
-                topBar: {
-                  visible: false,
-                },
-                statusBar: {
-                  style: 'dark',
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
+    });
   });
 }
 
@@ -114,7 +117,7 @@ export function pushSingleScreenApp(): void {
         children: [
           {
             component: {
-              name: SINGLE_APP_SCREEN,
+              name: screens.SINGLE_APP_SCREEN,
               options: {
                 topBar: {
                   title: {
@@ -156,7 +159,7 @@ export function pushTabBasedApp(): void {
               children: [
                 {
                   component: {
-                    name: TAB1_SCREEN,
+                    name: screens.TAB1_SCREEN,
                     options: {
                       topBar: {
                         title: {
@@ -195,7 +198,7 @@ export function pushTabBasedApp(): void {
               children: [
                 {
                   component: {
-                    name: TAB2_SCREEN,
+                    name: screens.TAB2_SCREEN,
                     options: {
                       topBar: {
                         title: {
@@ -234,3 +237,62 @@ export function pushTabBasedApp(): void {
     },
   });
 }
+
+export const goToAuth = (): Promise<void> => {
+  return Promise.all([
+    Icon.getImageSource('ios-log-in', 30),
+    Icon.getImageSource('ios-person-add', 30),
+  ]).then(([signInIcon, signUpIcon]) =>
+    Navigation.setRoot({
+      root: {
+        bottomTabs: {
+          id: 'BottomTabsId',
+          children: [
+            {
+              component: {
+                name: screens.SIGN_IN_SCREEN,
+                options: {
+                  bottomTab: {
+                    fontSize: 12,
+                    text: 'Sign In',
+                    icon: signInIcon,
+                  },
+                },
+              },
+            },
+            {
+              component: {
+                name: screens.SIGN_UP_SCREEN,
+                options: {
+                  bottomTab: {
+                    text: 'Sign Up',
+                    fontSize: 12,
+                    icon: signUpIcon,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    })
+  );
+};
+
+// export const goHome = (): Promise<void> => startMainTabs();
+// tslint:disable-next-line: no-commented-code
+export const goHome = (): Promise<any> =>
+  Navigation.setRoot({
+    root: {
+      stack: {
+        id: 'App',
+        children: [
+          {
+            component: {
+              name: screens.HOME_SCREEN,
+            },
+          },
+        ],
+      },
+    },
+  });

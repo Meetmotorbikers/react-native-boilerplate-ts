@@ -1,9 +1,21 @@
-export { default as WelcomeScreen } from './welcome/welcome.screen';
-export { default as LoginScreen } from './login/login.screen';
-export { default as SingleAppScreen } from './single-app/single-app.screen';
-export { default as Tab1Screen } from './tab-1/tab-1.screen';
-export { default as Tab2Screen } from './tab-2/tab-2.screen';
+import * as AwesomePlaces from './awesome-places/index';
+import * as ReactNativeNavigationPlayground from './react-native-navigation-playground';
+import * as ReactNativeNavigationTutorial from './react-native-navigation-tutorial';
 
-export { default as AuthScreen } from './auth/auth.screen';
-export { default as FindPlaceScreen } from './find-place/find-place.screen';
-export { default as SharePlaceScreen } from './share-place/share-place.screen';
+import SignInScreen from './auth/sign-in.screen';
+import SignUpScreen from './auth/sign-up.screen';
+import HomeScreen from './home/home.screen';
+import Initialize from './initialize/initialize.screen';
+
+export {
+  AwesomePlaces,
+  ReactNativeNavigationTutorial,
+  ReactNativeNavigationPlayground,
+};
+
+export const Exodus = {
+  HomeScreen,
+  Initialize,
+  SignUpScreen,
+  SignInScreen,
+};
