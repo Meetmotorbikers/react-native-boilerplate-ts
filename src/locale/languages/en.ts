@@ -17,8 +17,9 @@ const en = {
       signUpNow: 'Sign up now',
       or: 'or',
       passwordForgotten: 'Password forgotten?',
-      placeholderEmail: 'Email Address',
+      placeholderUsername: 'Username',
       placeholderPassword: 'Password',
+      signInBtn: 'Sign In',
     },
     signUp: {
       title: 'SIGN UP',

@@ -8,10 +8,12 @@ enum Render {
 
 interface Config {
   readonly selectWhatToRender: Render;
+  readonly USER_KEY: string;
 }
 
 const config: Config = {
   selectWhatToRender: Render.App,
+  USER_KEY: 'USER_KEY',
 };
 
 export default config;

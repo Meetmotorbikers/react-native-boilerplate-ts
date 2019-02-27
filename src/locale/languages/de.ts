@@ -20,8 +20,9 @@ const de: Types.Locale = {
       signUpNow: 'Jetzt Registrieren',
       or: 'oder',
       passwordForgotten: 'Passwort vergessen?',
-      placeholderEmail: 'Email Addresse',
+      placeholderUsername: 'Username',
       placeholderPassword: 'Passwort',
+      signInBtn: 'Einloggen',
     },
     signUp: {
       title: 'ANMELDEN',

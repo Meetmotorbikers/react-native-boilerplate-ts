@@ -1,9 +1,8 @@
-// tslint:disable: no-console
+import * as R from 'ramda';
 import * as React from 'react';
 import { Button, Input } from 'react-native-elements';
 import styled from 'styled-components/native';
 
-import { AuthFooter } from '@@components/index';
 import i18n from '@@locale/index';
 import { startMainTabs } from '@@navigation/index';
 
@@ -11,6 +10,7 @@ const AuthContainer = styled.View`
   width: 100%;
   flex: 1;
   align-items: center;
+  margin-top: 30;
 `;
 
 const MainWrapper = styled.View`
@@ -33,6 +33,8 @@ interface Props {
 }
 
 interface State {
+  readonly username: string;
+  readonly phone_number: string;
   readonly email: string;
   readonly password: string;
   readonly confirmPassword: string;
@@ -41,7 +43,9 @@ interface State {
 
 class SignUp extends React.PureComponent<Props, State> {
   state: State = {
+    username: '',
     email: '',
+    phone_number: '',
     password: '',
     confirmPassword: '',
     enableSignUpBTN: false,
@@ -55,7 +59,7 @@ class SignUp extends React.PureComponent<Props, State> {
 
           <Input
             placeholder={i18n.t('auth.signUp.placeholderEmail')}
-            onChangeText={this.handleEmailChange}
+            onChangeText={value => this.onChangeText('email', value)}
             value={this.state.email}
             containerStyle={{ marginTop: 24 }}
             textContentType="emailAddress"
@@ -63,7 +67,7 @@ class SignUp extends React.PureComponent<Props, State> {
 
           <Input
             placeholder={i18n.t('auth.signUp.placeholderPassword')}
-            onChangeText={this.handlePasswordChange}
+            onChangeText={value => this.onChangeText('password', value)}
             value={this.state.password}
             containerStyle={{ marginTop: 24 }}
             textContentType="newPassword"
@@ -72,7 +76,7 @@ class SignUp extends React.PureComponent<Props, State> {
 
           <Input
             placeholder={i18n.t('auth.signUp.placeholderConfirmPassword')}
-            onChangeText={this.handleConfirmPasswordChange}
+            onChangeText={value => this.onChangeText('confirmPassword', value)}
             value={this.state.confirmPassword}
             containerStyle={{ marginTop: 24 }}
             secureTextEntry={true}
@@ -94,12 +98,6 @@ class SignUp extends React.PureComponent<Props, State> {
             disabled={!this.state.enableSignUpBTN}
           />
         </MainWrapper>
-
-        <AuthFooter
-          title={i18n.t('auth.signUp.alreadyHaveAnAccount')}
-          actionCopy={i18n.t('auth.signUp.signInNow')}
-          onPress={console.log}
-        />
       </AuthContainer>
     );
   }
@@ -108,26 +106,43 @@ class SignUp extends React.PureComponent<Props, State> {
   };
 
   private shouldEnableSignUpBTN = (): void => {
-    const { email, password, confirmPassword } = this.state;
-    if (email && password && password === confirmPassword) {
+    const {
+      email,
+      password,
+      confirmPassword,
+      phone_number,
+      username,
+    } = this.state;
+
+    if (
+      username &&
+      email &&
+      password &&
+      phone_number &&
+      password === confirmPassword
+    ) {
       this.setState(prevState => ({ enableSignUpBTN: true }));
     }
   };
 
-  private handlePasswordChange = (password: string): void =>
-    this.setState(
-      prevState => ({ password }),
-      () => this.shouldEnableSignUpBTN()
-    );
+  private onChangeText = (
+    key: 'email' | 'password' | 'confirmPassword',
+    value: string
+  ): void => {
+    switch (key) {
+      case 'email':
+        return this.setState({ email: value }, this.shouldEnableSignUpBTN);
 
-  private handleEmailChange = (email: string): void =>
-    this.setState(prevState => ({ email }), () => this.shouldEnableSignUpBTN());
+      case 'password':
+        return this.setState({ password: value }, this.shouldEnableSignUpBTN);
 
-  private handleConfirmPasswordChange = (confirmPassword: string): void =>
-    this.setState(
-      prevState => ({ confirmPassword }),
-      () => this.shouldEnableSignUpBTN()
-    );
+      case 'confirmPassword':
+        return this.setState(
+          { confirmPassword: value },
+          this.shouldEnableSignUpBTN
+        );
+    }
+  };
 }
 
 export default SignUp;

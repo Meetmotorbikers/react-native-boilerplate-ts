@@ -6,6 +6,8 @@ export {
   pushSingleScreenApp,
   pushTabBasedApp,
   startMainTabs,
+  goHome,
+  goToAuth,
 } from './navigation';
 export { registerScreens } from './register-screens';
 export { screens, navigationRoot, Navigation };

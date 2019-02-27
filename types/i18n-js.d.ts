@@ -24,8 +24,9 @@ declare module 'i18n-js' {
   function t(key: 'auth.signIn.signUpNow'): 'Sign up now';
   function t(key: 'auth.signIn.or'): 'or';
   function t(key: 'auth.signIn.passwordForgotten'): 'Password forgotten?';
-  function t(key: 'auth.signIn.placeholderEmail'): 'Email Address';
+  function t(key: 'auth.signIn.placeholderUsername'): 'Username';
   function t(key: 'auth.signIn.placeholderPassword'): 'Password';
+  function t(key: 'auth.signIn.signInBtn'): 'Sign In';
   function t(key: 'auth.signUp.title'): 'SIGN UP';
   function t(key: 'auth.signUp.placeholderEmail'): 'Email Address';
   function t(key: 'auth.signUp.placeholderPassword'): 'Password';

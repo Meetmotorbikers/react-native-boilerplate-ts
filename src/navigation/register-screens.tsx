@@ -3,10 +3,9 @@ import { Navigation } from 'react-native-navigation';
 
 import {
   AwesomePlaces,
+  Exodus,
   ReactNativeNavigationPlayground,
   ReactNativeNavigationTutorial,
-  SignInScreen,
-  SignUpScreen,
 } from '@@screens/index';
 
 import StorybookUIRoot from '../../tools/storybook';
@@ -78,11 +77,19 @@ export const registerScreens = (): void => {
   );
 
   // EXODUS APP
+  Navigation.registerComponent(
+    screens.INITIALIZE_SCREEN,
+    () => Exodus.Initialize
+  );
   Navigation.registerComponent(screens.SIGN_IN_SCREEN, () =>
-    WrappedComponent(SignInScreen)
+    WrappedComponent(Exodus.SignInScreen)
   );
   Navigation.registerComponent(screens.SIGN_UP_SCREEN, () =>
-    WrappedComponent(SignUpScreen)
+    WrappedComponent(Exodus.SignUpScreen)
+  );
+
+  Navigation.registerComponent(screens.HOME_SCREEN, () =>
+    WrappedComponent(Exodus.HomeScreen)
   );
 
   // tslint:disable-next-line:no-console

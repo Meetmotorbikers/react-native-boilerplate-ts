@@ -130,44 +130,11 @@ export const RNNPlayground = (): void => {
   });
 };
 
-export const App = (): void => {
-  Navigation.setRoot({
+export const App = (): Promise<void> => {
+  return Navigation.setRoot({
     root: {
-      stack: {
-        options: {},
-        children: [
-          {
-            component: {
-              name: screens.SIGN_UP_SCREEN,
-              options: {
-                topBar: {
-                  backButton: {
-                    visible: false,
-                  },
-                  title: {
-                    text: 'Sign up',
-                  },
-                },
-              },
-            },
-          },
-
-          {
-            component: {
-              name: screens.SIGN_IN_SCREEN,
-              options: {
-                topBar: {
-                  backButton: {
-                    visible: false,
-                  },
-                  title: {
-                    text: 'Sign in',
-                  },
-                },
-              },
-            },
-          },
-        ],
+      component: {
+        name: screens.INITIALIZE_SCREEN,
       },
     },
   });
