@@ -3,11 +3,12 @@ import * as _ from 'lodash';
 import * as React from 'react';
 import { Alert, Text } from 'react-native';
 import { Button, Input, SocialIcon } from 'react-native-elements';
+import { Options } from 'react-native-navigation';
 import styled from 'styled-components/native';
 
 import { AuthFooter, Link } from '@@components/index';
 import i18n from '@@locale/index';
-import { startMainTabs } from '@@navigation/index';
+import { Navigation, screens, startMainTabs } from '@@navigation/index';
 
 const AuthContainer = styled.View`
   width: 100%;
@@ -45,6 +46,15 @@ interface State {
 }
 
 class SignIn extends React.PureComponent<Props, State> {
+  static options(): Options {
+    return {
+      topBar: {
+        backButton: {
+          visible: true,
+        },
+      },
+    };
+  }
   state: State = {
     email: '',
     password: '',
@@ -54,17 +64,17 @@ class SignIn extends React.PureComponent<Props, State> {
     return (
       <AuthContainer>
         <MainWrapper>
-          <Title>{i18n.t('login.title')}</Title>
+          <Title>{i18n.t('auth.signIn.title')}</Title>
           <SocialAuthWrapper>
             <SocialIcon
-              title={i18n.t('login.withFacebook')}
+              title={i18n.t('auth.signIn.withFacebook')}
               button={true}
               type="facebook"
               style={{ borderRadius: 0, marginHorizontal: 0 }}
               onPress={() => this.onSocialLoginHandler('facebook')}
             />
             <SocialIcon
-              title={i18n.t('login.withGoogle')}
+              title={i18n.t('auth.signIn.withGoogle')}
               button={true}
               type="google-plus-official"
               style={{ borderRadius: 0, marginHorizontal: 0 }}
@@ -80,28 +90,29 @@ class SignIn extends React.PureComponent<Props, State> {
               marginBottom: 24,
             }}
           >
-            {i18n.t('login.or')}
+            {i18n.t('auth.signIn.or')}
           </Text>
 
           <Input
-            placeholder={i18n.t('login.placeholderEmail')}
+            placeholder={i18n.t('auth.signIn.placeholderEmail')}
             onChangeText={this.handleEmailChange}
             value={this.state.email}
             containerStyle={{ marginTop: 24 }}
             textContentType="emailAddress"
           />
           <Input
-            placeholder={i18n.t('login.placeholderPassword')}
+            placeholder={i18n.t('auth.signIn.placeholderPassword')}
             onChangeText={this.handlePasswordChange}
             value={this.state.password}
             containerStyle={{ marginTop: 24 }}
             textContentType="password"
+            secureTextEntry={true}
           />
 
           <Button
             onPress={this.handleButtonPress}
             title={'Einloggen'}
-            testID="loginBtn"
+            testID="SignInBTN"
             buttonStyle={{
               borderRadius: 0,
               marginTop: 24,
@@ -114,19 +125,23 @@ class SignIn extends React.PureComponent<Props, State> {
             disabled={!this.state.email || !this.state.password}
           />
 
-          <Link>{i18n.t('login.passwordForgotten')}</Link>
+          <Link>{i18n.t('auth.signIn.passwordForgotten')}</Link>
         </MainWrapper>
 
         <AuthFooter
-          title={i18n.t('login.dontHaveAnAccount')}
-          actionCopy={i18n.t('login.signUpNow')}
-          onPress={console.log}
+          title={i18n.t('auth.signIn.dontHaveAnAccount')}
+          actionCopy={i18n.t('auth.signIn.signUpNow')}
+          onPress={this.navigateToSignUp}
         />
       </AuthContainer>
     );
   }
   private handleButtonPress = (ev: any): void => {
     startMainTabs();
+  };
+
+  private navigateToSignUp = (): void => {
+    Navigation.push(this, screens.SIGN_UP_SCREEN);
   };
 
   private onSocialLoginHandler = (type: 'google' | 'facebook'): void => {

@@ -6,6 +6,7 @@ export { default as Tab2Screen } from './tab-2/tab-2.screen';
 
 export { default as SignInScreen } from './auth/sign-in.screen';
 export { default as SignUpScreen } from './auth/sign-up.screen';
+
 export { default as SideDrawerScreen } from './side-drawer/side-drawer.screen';
 
 export { default as FindPlaceScreen } from './find-place/find-place.container';

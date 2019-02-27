@@ -7,13 +7,10 @@ enum Render {
 }
 
 interface Config {
-  readonly shouldDisplayStorybook: boolean;
   readonly selectWhatToRender: Render;
 }
 
 const config: Config = {
-  shouldDisplayStorybook: true,
-
   selectWhatToRender: Render.App,
 };
 

@@ -1,10 +1,10 @@
 import { Navigation } from 'react-native-navigation';
+
 import { setDefaultOptions } from './commons/options';
-import { registerScreens } from './navigation/register-screens';
+
+import { navigationRoot, registerScreens } from '@@navigation/index';
 
 import config from './config';
-
-import * as navigationRoot from './navigation/navigation-root';
 
 export function start(): void {
   /** Register all screens on launch */

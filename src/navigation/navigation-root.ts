@@ -139,14 +139,32 @@ export const App = (): void => {
           {
             component: {
               name: screens.SIGN_UP_SCREEN,
-              options: {},
+              options: {
+                topBar: {
+                  backButton: {
+                    visible: false,
+                  },
+                  title: {
+                    text: 'Sign up',
+                  },
+                },
+              },
             },
           },
 
           {
             component: {
               name: screens.SIGN_IN_SCREEN,
-              options: {},
+              options: {
+                topBar: {
+                  backButton: {
+                    visible: false,
+                  },
+                  title: {
+                    text: 'Sign in',
+                  },
+                },
+              },
             },
           },
         ],

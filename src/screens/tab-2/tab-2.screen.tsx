@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
 import styled from 'styled-components/native';
 
-import { pushTutorialScreen } from '@@navigation/index';
+import { navigationRoot } from '@@navigation/index';
 
 const Wrapper = styled.View`
   flex: 1;
@@ -29,7 +29,7 @@ class Tab2Screen extends React.PureComponent<Props> {
   navigationButtonPressed({ buttonId }: { readonly buttonId: string }): void {
     switch (buttonId) {
       case 'nav_logout_btn': {
-        pushTutorialScreen();
+        navigationRoot.RNNTutorial();
         break;
       }
       case 'nav_user_btn': {

@@ -8,8 +8,8 @@ import {
 } from 'react-native-navigation';
 
 import { PlaceList } from '@@components/index';
-import { DETAIL_PLACE_SCREEN } from '@@navigation/index';
-import { LEFT_SIDE_MENU_ID } from 'src/constants';
+import { LEFT_SIDE_MENU_ID } from '@@constants/index';
+import { screens } from '@@navigation/index';
 import { Props } from './find-place.container';
 class FindPlaceScreen extends React.PureComponent<Props> {
   navigationEventListener?: EventSubscription;
@@ -59,7 +59,7 @@ class FindPlaceScreen extends React.PureComponent<Props> {
 
     Navigation.push(this.props.componentId, {
       component: {
-        name: DETAIL_PLACE_SCREEN,
+        name: screens.DETAIL_PLACE_SCREEN,
         passProps: { selectedPlace },
         options: {
           topBar: {
