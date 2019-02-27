@@ -3,9 +3,8 @@ import { Button } from 'react-native';
 
 import { Root } from '@@components/index';
 import testIDs from '@@constants/testIDs';
-import * as Screens from '@@navigation/screens';
+import { Navigation, screens } from '@@navigation/index';
 import { component, stack } from 'src/commons/layouts';
-import Navigation from 'src/services/navigation';
 
 interface Props {
   readonly componentId: string;
@@ -563,30 +562,30 @@ export default class LayoutsScreen extends React.Component<Props> {
   private sideMenu = () =>
     Navigation.showModal({
       sideMenu: {
-        left: { ...component(Screens.SideMenuLeft) },
+        left: { ...component(screens.SideMenuLeft) },
         center: {
           ...stack({
             component: {
               id: 'SideMenuCenter',
-              name: Screens.SideMenuCenter,
+              name: screens.SideMenuCenter,
             },
           }),
         },
-        right: { ...component(Screens.SideMenuRight) },
+        right: { ...component(screens.SideMenuRight) },
       },
     });
 
-  private stack = () => Navigation.showModal(Screens.StackScreen);
+  private stack = () => Navigation.showModal(screens.StackScreen);
 
   private bottomTabs = () =>
     Navigation.showModal({
       bottomTabs: {
         children: [
-          stack(Screens.FirstBottomTabsScreen),
+          stack(screens.FirstBottomTabsScreen),
           stack(
             {
               component: {
-                name: Screens.SecondBottomTabsScreen,
+                name: screens.SecondBottomTabsScreen,
               },
             },
             'SecondTab'

@@ -43,6 +43,9 @@ export const Search = 'RNNPlayground.Search';
 export const SIGN_IN_SCREEN = 'exodus.SignInScreen';
 export const SIGN_UP_SCREEN = 'exodus.SignUpScreen';
 
+export const INITIALIZE_SCREEN = 'exodus.InitializeScreen';
+export const HOME_SCREEN = 'exodus.HomeScreen';
+
 export const SIDE_DRAWER_SCREEN = 'awesomePlaces.SideDrawerScreen';
 export const SHARE_PLACES_SCREEN = 'awesomePlaces.SharePlaceScreen';
 export const FIND_PLACES_SCREEN = 'awesomePlaces.FindPlaceScreen';

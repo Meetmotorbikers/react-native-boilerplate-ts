@@ -1,18 +1,20 @@
-// tslint:disable: no-console
 import * as _ from 'lodash';
 import * as React from 'react';
-import { Alert, Text } from 'react-native';
+import { Alert, AsyncStorage, Text } from 'react-native';
 import { Button, Input, SocialIcon } from 'react-native-elements';
 import styled from 'styled-components/native';
 
-import { AuthFooter, Link } from '@@components/index';
+import { Link } from '@@components/index';
+import config from '@@config/index';
 import i18n from '@@locale/index';
 import { startMainTabs } from '@@navigation/index';
+import { goHome } from '@@navigation/index';
 
 const AuthContainer = styled.View`
   width: 100%;
   flex: 1;
   align-items: center;
+  margin-top: 30;
 `;
 
 const MainWrapper = styled.View`
@@ -40,13 +42,13 @@ interface Props {
 }
 
 interface State {
-  readonly email: string;
+  readonly username: string;
   readonly password: string;
 }
 
 class SignIn extends React.PureComponent<Props, State> {
   state: State = {
-    email: '',
+    username: '',
     password: '',
   };
 
@@ -54,17 +56,17 @@ class SignIn extends React.PureComponent<Props, State> {
     return (
       <AuthContainer>
         <MainWrapper>
-          <Title>{i18n.t('login.title')}</Title>
+          <Title>{i18n.t('auth.signIn.title')}</Title>
           <SocialAuthWrapper>
             <SocialIcon
-              title={i18n.t('login.withFacebook')}
+              title={i18n.t('auth.signIn.withFacebook')}
               button={true}
               type="facebook"
               style={{ borderRadius: 0, marginHorizontal: 0 }}
               onPress={() => this.onSocialLoginHandler('facebook')}
             />
             <SocialIcon
-              title={i18n.t('login.withGoogle')}
+              title={i18n.t('auth.signIn.withGoogle')}
               button={true}
               type="google-plus-official"
               style={{ borderRadius: 0, marginHorizontal: 0 }}
@@ -80,28 +82,29 @@ class SignIn extends React.PureComponent<Props, State> {
               marginBottom: 24,
             }}
           >
-            {i18n.t('login.or')}
+            {i18n.t('auth.signIn.or')}
           </Text>
 
           <Input
-            placeholder={i18n.t('login.placeholderEmail')}
-            onChangeText={this.handleEmailChange}
-            value={this.state.email}
+            placeholder={i18n.t('auth.signIn.placeholderUsername')}
+            onChangeText={value => this.onChangeText('username', value)}
+            value={this.state.username}
             containerStyle={{ marginTop: 24 }}
-            textContentType="emailAddress"
+            textContentType="username"
           />
           <Input
-            placeholder={i18n.t('login.placeholderPassword')}
-            onChangeText={this.handlePasswordChange}
+            placeholder={i18n.t('auth.signIn.placeholderPassword')}
+            onChangeText={value => this.onChangeText('password', value)}
             value={this.state.password}
             containerStyle={{ marginTop: 24 }}
             textContentType="password"
+            secureTextEntry={true}
           />
 
           <Button
-            onPress={this.handleButtonPress}
-            title={'Einloggen'}
-            testID="loginBtn"
+            onPress={this.singIn}
+            title={i18n.t('auth.signIn.signInBtn')}
+            testID="SignInBTN"
             buttonStyle={{
               borderRadius: 0,
               marginTop: 24,
@@ -111,22 +114,40 @@ class SignIn extends React.PureComponent<Props, State> {
             containerStyle={{
               width: '100%',
             }}
-            disabled={!this.state.email || !this.state.password}
+            disabled={!this.state.username || !this.state.password}
           />
 
-          <Link>{i18n.t('login.passwordForgotten')}</Link>
+          <Link>{i18n.t('auth.signIn.passwordForgotten')}</Link>
         </MainWrapper>
-
-        <AuthFooter
-          title={i18n.t('login.dontHaveAnAccount')}
-          actionCopy={i18n.t('login.signUpNow')}
-          onPress={console.log}
-        />
       </AuthContainer>
     );
   }
-  private handleButtonPress = (ev: any): void => {
-    startMainTabs();
+
+  private onChangeText = (
+    key: 'username' | 'password',
+    value: string
+  ): void => {
+    switch (key) {
+      case 'username':
+        return this.setState({ username: value });
+
+      case 'password':
+        return this.setState({ password: value });
+    }
+  };
+
+  private singIn = async (): Promise<void> => {
+    const { username: email } = this.state;
+    try {
+      // login with provider
+      const user = await AsyncStorage.setItem(config.USER_KEY, email);
+      // tslint:disable-next-line: no-console
+      console.log('user successfully signed in!', user);
+      goHome();
+    } catch (error) {
+      // tslint:disable-next-line: no-console
+      console.log('error: ', error);
+    }
   };
 
   private onSocialLoginHandler = (type: 'google' | 'facebook'): void => {
@@ -137,19 +158,16 @@ class SignIn extends React.PureComponent<Props, State> {
       [
         {
           text: 'Cancel',
-          onPress: (): void => console.log('Cancel Pressed'),
+          onPress: (): void => {
+            // tslint:disable-next-line: no-console
+            console.log('Cancel Pressed');
+          },
           style: 'cancel',
         },
       ],
       { cancelable: false }
     );
   };
-
-  private handlePasswordChange = (password: string): void =>
-    this.setState(prevState => ({ password }));
-
-  private handleEmailChange = (email: string): void =>
-    this.setState(prevState => ({ email }));
 }
 
 export default SignIn;

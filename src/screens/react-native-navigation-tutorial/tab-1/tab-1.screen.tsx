@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
 import styled from 'styled-components/native';
 
-import { pushTutorialScreen } from '@@navigation/index';
+import { navigationRoot } from '@@navigation/index';
 
 const Wrapper = styled.View`
   flex: 1;
@@ -19,8 +19,7 @@ const Copy = styled.Text`
 interface Props {
   readonly data: {};
 }
-
-class Tab2Screen extends React.PureComponent<Props> {
+class Tab1Screen extends React.PureComponent<Props> {
   constructor(props: Props) {
     super(props);
     Navigation.events().bindComponent(this);
@@ -29,12 +28,14 @@ class Tab2Screen extends React.PureComponent<Props> {
   navigationButtonPressed({ buttonId }: { readonly buttonId: string }): void {
     switch (buttonId) {
       case 'nav_logout_btn': {
-        pushTutorialScreen();
+        navigationRoot.RNNTutorial();
         break;
       }
+
       case 'nav_user_btn': {
         break;
       }
+
       default:
         break;
     }
@@ -49,4 +50,4 @@ class Tab2Screen extends React.PureComponent<Props> {
   }
 }
 
-export default Tab2Screen;
+export default Tab1Screen;

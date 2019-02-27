@@ -11,16 +11,27 @@ const de: Types.Locale = {
   },
   greetings: 'Willkommen zu React Native!',
   instructions: 'Bearbeiten Sie zunächst app.tsx',
-  login: {
-    title: 'EINLOGGEN',
-    withFacebook: 'Einloggen mit Facebook',
-    withGoogle: 'Einloggen mit Google',
-    dontHaveAnAccount: 'Hast du noch keinen Account?',
-    signUpNow: 'Jetzt Registrieren',
-    or: 'oder',
-    passwordForgotten: 'Passwort vergessen?',
-    placeholderEmail: 'Email Addresse',
-    placeholderPassword: 'Passwort',
+  auth: {
+    signIn: {
+      title: 'EINLOGGEN',
+      withFacebook: 'Einloggen mit Facebook',
+      withGoogle: 'Einloggen mit Google',
+      dontHaveAnAccount: 'Hast du noch keinen Account?',
+      signUpNow: 'Jetzt Registrieren',
+      or: 'oder',
+      passwordForgotten: 'Passwort vergessen?',
+      placeholderUsername: 'Username',
+      placeholderPassword: 'Passwort',
+      signInBtn: 'Einloggen',
+    },
+    signUp: {
+      title: 'ANMELDEN',
+      placeholderEmail: 'Email Addresse',
+      placeholderPassword: 'Passwort',
+      placeholderConfirmPassword: 'Passwort bestätigen',
+      alreadyHaveAnAccount: 'Hast du bereits einen Account?',
+      signInNow: 'Schreib dich jetzt ein',
+    },
   },
 };
 
