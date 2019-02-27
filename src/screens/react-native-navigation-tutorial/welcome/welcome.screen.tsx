@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
 import styled from 'styled-components/native';
 
-import { LOGIN_SCREEN } from '@@navigation/index';
+import { screens } from '@@navigation/index';
 
 const Wrapper = styled.View`
   flex: 1;
@@ -33,7 +33,7 @@ class WelcomeScreen extends React.PureComponent<{
   readonly handleGetStartAction = (screenType: 'Single' | 'Tab'): void => {
     Navigation.push(this.props.componentId, {
       component: {
-        name: LOGIN_SCREEN,
+        name: screens.LOGIN_SCREEN,
         passProps: {
           screenType,
         },

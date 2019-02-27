@@ -2,20 +2,10 @@ import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
 
 import {
-  FindPlaceScreen,
-  LayoutScreen,
-  LoginScreen,
-  NavigationScreen,
-  OptionsScreen,
-  PlaceDetailScreen,
-  SharePlaceScreen,
-  SideDrawerScreen,
-  SignInScreen,
-  SignUpScreen,
-  SingleAppScreen,
-  Tab1Screen,
-  Tab2Screen,
-  WelcomeScreen,
+  AwesomePlaces,
+  Exodus,
+  ReactNativeNavigationPlayground,
+  ReactNativeNavigationTutorial,
 } from '@@screens/index';
 
 import StorybookUIRoot from '../../tools/storybook';
@@ -37,54 +27,69 @@ const WrappedComponent = (Component: React.ComponentType<any>) => (
 
 // Register Screens
 export const registerScreens = (): void => {
-  /**  RNN TUTORIAL screens */
+  /**  REACT NATIVE NAVIGATION TUTORIAL screens */
   Navigation.registerComponent(screens.WELCOME_SCREEN, () =>
-    WrappedComponent(WelcomeScreen)
+    WrappedComponent(ReactNativeNavigationTutorial.WelcomeScreen)
   );
   Navigation.registerComponent(screens.LOGIN_SCREEN, () =>
-    WrappedComponent(LoginScreen)
+    WrappedComponent(ReactNativeNavigationTutorial.LoginScreen)
   );
   Navigation.registerComponent(screens.SINGLE_APP_SCREEN, () =>
-    WrappedComponent(SingleAppScreen)
+    WrappedComponent(ReactNativeNavigationTutorial.SingleAppScreen)
   );
   Navigation.registerComponent(screens.TAB1_SCREEN, () =>
-    WrappedComponent(Tab1Screen)
+    WrappedComponent(ReactNativeNavigationTutorial.Tab1Screen)
   );
   Navigation.registerComponent(screens.TAB2_SCREEN, () =>
-    WrappedComponent(Tab2Screen)
+    WrappedComponent(ReactNativeNavigationTutorial.Tab2Screen)
   );
 
-  /**  RNN PLAYGROUND screens */
-  Navigation.registerComponent(screens.Layouts, () => LayoutScreen);
-  Navigation.registerComponent(screens.Options, () => OptionsScreen);
-  Navigation.registerComponent(screens.Navigation, () => NavigationScreen);
+  /**  REACT NATIVE NAVIGATION PLAYGROUND screens */
+  Navigation.registerComponent(
+    screens.Layouts,
+    () => ReactNativeNavigationPlayground.LayoutScreen
+  );
+  Navigation.registerComponent(
+    screens.Options,
+    () => ReactNativeNavigationPlayground.OptionsScreen
+  );
+  Navigation.registerComponent(
+    screens.Navigation,
+    () => ReactNativeNavigationPlayground.NavigationScreen
+  );
 
   /** STORYBOOK UI screens  */
   Navigation.registerComponent(screens.STORYBOOK_UI, () => StorybookUIRoot);
 
-  /** CUSTOM APP screens */
+  /** AWESOME PLACES screens */
   Navigation.registerComponent(
     screens.SIDE_DRAWER_SCREEN,
-    () => SideDrawerScreen
+    () => AwesomePlaces.SideDrawerScreen
   );
-
   Navigation.registerComponent(screens.SHARE_PLACES_SCREEN, () =>
-    WrappedComponent(SharePlaceScreen)
+    WrappedComponent(AwesomePlaces.SharePlaceScreen)
   );
   Navigation.registerComponent(screens.FIND_PLACES_SCREEN, () =>
-    WrappedComponent(FindPlaceScreen)
+    WrappedComponent(AwesomePlaces.FindPlaceScreen)
   );
-
   Navigation.registerComponent(screens.DETAIL_PLACE_SCREEN, () =>
-    WrappedComponent(PlaceDetailScreen)
+    WrappedComponent(AwesomePlaces.PlaceDetailScreen)
   );
 
   // EXODUS APP
+  Navigation.registerComponent(
+    screens.INITIALIZE_SCREEN,
+    () => Exodus.Initialize
+  );
   Navigation.registerComponent(screens.SIGN_IN_SCREEN, () =>
-    WrappedComponent(SignInScreen)
+    WrappedComponent(Exodus.SignInScreen)
   );
   Navigation.registerComponent(screens.SIGN_UP_SCREEN, () =>
-    WrappedComponent(SignUpScreen)
+    WrappedComponent(Exodus.SignUpScreen)
+  );
+
+  Navigation.registerComponent(screens.HOME_SCREEN, () =>
+    WrappedComponent(Exodus.HomeScreen)
   );
 
   // tslint:disable-next-line:no-console

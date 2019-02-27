@@ -7,14 +7,13 @@ enum Render {
 }
 
 interface Config {
-  readonly shouldDisplayStorybook: boolean;
   readonly selectWhatToRender: Render;
+  readonly USER_KEY: string;
 }
 
 const config: Config = {
-  shouldDisplayStorybook: true,
-
   selectWhatToRender: Render.App,
+  USER_KEY: 'USER_KEY',
 };
 
 export default config;

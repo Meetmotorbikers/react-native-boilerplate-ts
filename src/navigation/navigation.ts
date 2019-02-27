@@ -9,12 +9,12 @@ const SHARE_PLACE = 'Share Place';
 import { LEFT_SIDE_MENU_ID } from 'src/constants';
 import testIDs from 'src/constants/testIDs';
 
-export function startMainTabs(): void {
-  Promise.all([
+export function startMainTabs(): Promise<void> {
+  return Promise.all([
     Icon.getImageSource('md-map', 30),
     Icon.getImageSource('ios-share-alt', 30),
     Icon.getImageSource('ios-menu', 30),
-  ]).then(sources => {
+  ]).then(([mapIcon, shareIcon, menuIcon]) => {
     Navigation.setRoot({
       root: {
         sideMenu: {
@@ -43,7 +43,7 @@ export function startMainTabs(): void {
                               },
                               leftButtons: [
                                 {
-                                  icon: sources[2],
+                                  icon: menuIcon,
                                   text: 'Menu',
                                   id: LEFT_SIDE_MENU_ID,
                                   color: '#007AFF',
@@ -58,7 +58,7 @@ export function startMainTabs(): void {
                       bottomTab: {
                         testID: 'FIND_PLACES_SCREEN',
                         text: FIND_PLACE,
-                        icon: sources[0],
+                        icon: mapIcon,
                         selectedIconColor: '#007AFF',
                       },
                     },
@@ -80,7 +80,7 @@ export function startMainTabs(): void {
                               },
                               leftButtons: [
                                 {
-                                  icon: sources[2],
+                                  icon: menuIcon,
                                   text: 'Menu',
                                   id: LEFT_SIDE_MENU_ID,
                                   color: '#007AFF',
@@ -95,7 +95,7 @@ export function startMainTabs(): void {
                       bottomTab: {
                         testID: 'SHARE_PLACES_SCREEN',
                         text: SHARE_PLACE,
-                        icon: sources[1],
+                        icon: shareIcon,
                         selectedIconColor: '#007AFF',
                       },
                     },
@@ -237,3 +237,62 @@ export function pushTabBasedApp(): void {
     },
   });
 }
+
+export const goToAuth = (): Promise<void> => {
+  return Promise.all([
+    Icon.getImageSource('ios-log-in', 30),
+    Icon.getImageSource('ios-person-add', 30),
+  ]).then(([signInIcon, signUpIcon]) =>
+    Navigation.setRoot({
+      root: {
+        bottomTabs: {
+          id: 'BottomTabsId',
+          children: [
+            {
+              component: {
+                name: screens.SIGN_IN_SCREEN,
+                options: {
+                  bottomTab: {
+                    fontSize: 12,
+                    text: 'Sign In',
+                    icon: signInIcon,
+                  },
+                },
+              },
+            },
+            {
+              component: {
+                name: screens.SIGN_UP_SCREEN,
+                options: {
+                  bottomTab: {
+                    text: 'Sign Up',
+                    fontSize: 12,
+                    icon: signUpIcon,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    })
+  );
+};
+
+// export const goHome = (): Promise<void> => startMainTabs();
+// tslint:disable-next-line: no-commented-code
+export const goHome = (): Promise<any> =>
+  Navigation.setRoot({
+    root: {
+      stack: {
+        id: 'App',
+        children: [
+          {
+            component: {
+              name: screens.HOME_SCREEN,
+            },
+          },
+        ],
+      },
+    },
+  });

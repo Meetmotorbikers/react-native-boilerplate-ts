@@ -15,15 +15,26 @@ declare module 'i18n-js' {
   ): 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu';
   function t(key: 'greetings'): 'Welcome to React Native!';
   function t(key: 'instructions'): 'To get started, edit app.tsx';
-  function t(key: 'login.title'): 'LOGIN';
-  function t(key: 'login.withFacebook'): 'Sign in with Facebook';
-  function t(key: 'login.withGoogle'): 'Sign in with Google';
-  function t(key: 'login.dontHaveAnAccount'): "Don't have an account yet?";
-  function t(key: 'login.signUpNow'): 'Sign up now';
-  function t(key: 'login.or'): 'or';
-  function t(key: 'login.passwordForgotten'): 'Password forgotten?';
-  function t(key: 'login.placeholderEmail'): 'Email Address';
-  function t(key: 'login.placeholderPassword'): 'Password';
+  function t(key: 'auth.signIn.title'): 'SIGN IN';
+  function t(key: 'auth.signIn.withFacebook'): 'Sign in with Facebook';
+  function t(key: 'auth.signIn.withGoogle'): 'Sign in with Google';
+  function t(
+    key: 'auth.signIn.dontHaveAnAccount'
+  ): "Don't have an account yet?";
+  function t(key: 'auth.signIn.signUpNow'): 'Sign up now';
+  function t(key: 'auth.signIn.or'): 'or';
+  function t(key: 'auth.signIn.passwordForgotten'): 'Password forgotten?';
+  function t(key: 'auth.signIn.placeholderUsername'): 'Username';
+  function t(key: 'auth.signIn.placeholderPassword'): 'Password';
+  function t(key: 'auth.signIn.signInBtn'): 'Sign In';
+  function t(key: 'auth.signUp.title'): 'SIGN UP';
+  function t(key: 'auth.signUp.placeholderEmail'): 'Email Address';
+  function t(key: 'auth.signUp.placeholderPassword'): 'Password';
+  function t(key: 'auth.signUp.placeholderConfirmPassword'): 'Confirm Password';
+  function t(
+    key: 'auth.signUp.alreadyHaveAnAccount'
+  ): 'Do you already have an account?';
+  function t(key: 'auth.signUp.signInNow'): 'Sing in now';
 }
 
 declare module '*.json' {
