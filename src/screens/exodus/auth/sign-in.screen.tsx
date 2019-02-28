@@ -9,6 +9,7 @@ import config from '@@config/index';
 import i18n from '@@locale/index';
 import { startMainTabs } from '@@navigation/index';
 import { goHome } from '@@navigation/index';
+import console = require('console');
 
 const AuthContainer = styled.View`
   width: 100%;
@@ -87,14 +88,14 @@ class SignIn extends React.PureComponent<Props, State> {
 
           <Input
             placeholder={i18n.t('auth.signIn.placeholderUsername')}
-            onChangeText={value => this.onChangeText('username', value)}
+            onChangeText={username => this.onChangeText('username', username)}
             value={this.state.username}
             containerStyle={{ marginTop: 24 }}
             textContentType="username"
           />
           <Input
             placeholder={i18n.t('auth.signIn.placeholderPassword')}
-            onChangeText={value => this.onChangeText('password', value)}
+            onChangeText={password => this.onChangeText('password', password)}
             value={this.state.password}
             containerStyle={{ marginTop: 24 }}
             textContentType="password"

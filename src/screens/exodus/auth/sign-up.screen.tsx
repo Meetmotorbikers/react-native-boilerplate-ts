@@ -1,4 +1,5 @@
-import * as R from 'ramda';
+// tslint:disable: variable-name max-union-size
+
 import * as React from 'react';
 import { Button, Input } from 'react-native-elements';
 import styled from 'styled-components/native';
@@ -56,6 +57,13 @@ class SignUp extends React.PureComponent<Props, State> {
       <AuthContainer>
         <MainWrapper>
           <Title>{i18n.t('auth.signUp.title')}</Title>
+          <Input
+            placeholder={'Username'}
+            onChangeText={username => this.onChangeText('username', username)}
+            value={this.state.username}
+            containerStyle={{ marginTop: 24 }}
+            textContentType="username"
+          />
 
           <Input
             placeholder={i18n.t('auth.signUp.placeholderEmail')}
@@ -63,6 +71,16 @@ class SignUp extends React.PureComponent<Props, State> {
             value={this.state.email}
             containerStyle={{ marginTop: 24 }}
             textContentType="emailAddress"
+          />
+
+          <Input
+            placeholder={'Phone Number'}
+            onChangeText={phone_number =>
+              this.onChangeText('phone_number', phone_number)
+            }
+            value={this.state.phone_number}
+            containerStyle={{ marginTop: 24 }}
+            textContentType="telephoneNumber"
           />
 
           <Input
@@ -126,10 +144,19 @@ class SignUp extends React.PureComponent<Props, State> {
   };
 
   private onChangeText = (
-    key: 'email' | 'password' | 'confirmPassword',
+    key: 'username' | 'email' | 'phone_number' | 'password' | 'confirmPassword',
     value: string
   ): void => {
     switch (key) {
+      case 'username':
+        return this.setState({ username: value }, this.shouldEnableSignUpBTN);
+
+      case 'phone_number':
+        return this.setState(
+          { phone_number: value },
+          this.shouldEnableSignUpBTN
+        );
+
       case 'email':
         return this.setState({ email: value }, this.shouldEnableSignUpBTN);
 
